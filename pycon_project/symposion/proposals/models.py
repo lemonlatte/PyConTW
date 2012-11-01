@@ -10,11 +10,11 @@ from symposion.conference.models import PresentationKind, PresentationCategory
 
 
 class Proposal(models.Model):
-    
+
     AUDIENCE_LEVEL_NOVICE = 1
     AUDIENCE_LEVEL_EXPERIENCED = 2
     AUDIENCE_LEVEL_INTERMEDIATE = 3
-    
+
     AUDIENCE_LEVELS = [
         (AUDIENCE_LEVEL_NOVICE, _("Novice")),
         (AUDIENCE_LEVEL_INTERMEDIATE, _("Intermediate")),
@@ -31,7 +31,7 @@ class Proposal(models.Model):
         (1, "English"),
         (2, _("Chinese")),
     )
-    
+
     title = models.CharField(_("Title"), max_length=100)
     description = models.TextField(
         _("Description"),
@@ -54,7 +54,7 @@ class Proposal(models.Model):
     extreme = models.BooleanField(
         _("Extreme"),
         default=False,
-        help_text = _("'Extreme' talks are advanced talks with little or no introductory material. See <a href='http://us.pycon.org/2012/speaker/extreme/' target='_blank'>http://us.pycon.org/2012/speaker/extreme/</a> for details.")
+        help_text = _("'Extreme' talks are advanced talks with little or no introductory material. See <a href='http://us.pycon.org/2013/speaker/extreme/' target='_blank'>http://us.pycon.org/2013/speaker/extreme/</a> for details.")
     )
     duration = models.IntegerField(_("Duration"), choices=DURATION_CHOICES, default=0)
     submitted = models.DateTimeField(
@@ -67,10 +67,10 @@ class Proposal(models.Model):
 
     def __unicode__(self):
         return self.title
-    
+
     def can_edit(self):
         return True
-    
+
     @property
     def speaker_email(self):
         return self.speaker.email
@@ -78,7 +78,7 @@ class Proposal(models.Model):
     @property
     def number(self):
         return str(self.pk).zfill(3)
-    
+
     def speakers(self):
         yield self.speaker
         for speaker in self.additional_speakers.all():

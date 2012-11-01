@@ -8,7 +8,7 @@ import pinax
 PINAX_ROOT = os.path.abspath(os.path.dirname(pinax.__file__))
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-PYCON_YEAR = "2012"
+PYCON_YEAR = "2013"
 
 # tells Pinax to use the default theme
 PINAX_THEME = "default"
@@ -144,12 +144,12 @@ INSTALLED_APPS = [
     "nashvegas",
     "django_extensions",
     "common",
-    
+
     # external
     "uni_form",
     "debug_toolbar",
     "markitup",
-    
+
     "emailconfirmation",
     "timezones",
     "django_openid",
@@ -163,13 +163,13 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "mailout",
     "reversion",
-    
+
     # Pinax
     "pinax.templatetags",
     "pinax.apps.waitinglist",
     "pinax.apps.account",
     "pinax.apps.analytics",
-    
+
     # symposion
     "symposion.conference",
     "symposion.proposals",
@@ -177,7 +177,7 @@ INSTALLED_APPS = [
     "symposion.schedule",
     "symposion.speakers",
     "symposion.sponsors_pro",
-    
+
     # project
     "boxes",
     "wiki",
@@ -190,7 +190,7 @@ FIXTURE_DIRS = [
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 CONTACT_EMAIL = "organizers@pycon.tw"
-SITE_NAME = "PyCon Taiwan 2012"
+SITE_NAME = "PyCon Taiwan 2013"
 
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,

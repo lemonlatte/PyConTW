@@ -25,15 +25,15 @@ from symposion.schedule.models import (Slot, Presentation, Track, Session, Sessi
     UserBookmark, Plenary)
 
 
-# @@@ this needs some rethinking (PyCon 2012 specific and hacky as heck)
-wed_morn_start = datetime.datetime(2012, 3, 7, 12, 0)  # 9AM Pacific
-wed_morn_end = datetime.datetime(2012, 3, 7, 15, 20)  # 12:20PM Pacific
-wed_after_start = datetime.datetime(2012, 3, 7, 16, 20)  # 1:20PM Pacific
-wed_after_end = datetime.datetime(2012, 3, 7, 19, 40)  # 4:40PM Pacific
-thu_morn_start = datetime.datetime(2012, 3, 8, 12, 0)  # 9AM Pacific
-thu_morn_end = datetime.datetime(2012, 3, 8, 15, 20)  # 12:20PM Pacific
-thu_after_start = datetime.datetime(2012, 3, 8, 16, 20)  # 1:20PM Pacific
-thu_after_end = datetime.datetime(2012, 3, 8, 19, 40)  # 4:40PM Pacific
+# @@@ this needs some rethinking (PyCon 2013 specific and hacky as heck)
+wed_morn_start = datetime.datetime(2013, 3, 7, 12, 0)  # 9AM Pacific
+wed_morn_end = datetime.datetime(2013, 3, 7, 15, 20)  # 12:20PM Pacific
+wed_after_start = datetime.datetime(2013, 3, 7, 16, 20)  # 1:20PM Pacific
+wed_after_end = datetime.datetime(2013, 3, 7, 19, 40)  # 4:40PM Pacific
+thu_morn_start = datetime.datetime(2013, 3, 8, 12, 0)  # 9AM Pacific
+thu_morn_end = datetime.datetime(2013, 3, 8, 15, 20)  # 12:20PM Pacific
+thu_after_start = datetime.datetime(2013, 3, 8, 16, 20)  # 1:20PM Pacific
+thu_after_end = datetime.datetime(2013, 3, 8, 19, 40)  # 4:40PM Pacific
 
 WEDNESDAY_MORNING = (wed_morn_start, wed_morn_end)
 WEDNESDAY_AFTERNOON = (wed_after_start, wed_after_end)
@@ -48,12 +48,12 @@ def hash_for_user(user):
 
 
 def schedule_list(request, template_name="schedule/schedule_list.html", extra_context=None):
-    
+
     if extra_context is None:
         extra_context = {}
-    
+
     slots = Slot.objects.all().order_by("start")
-    
+
     return render_to_response(template_name, dict({
         "slots": slots,
         "timezone": settings.SCHEDULE_TIMEZONE,
@@ -61,18 +61,18 @@ def schedule_list(request, template_name="schedule/schedule_list.html", extra_co
 
 
 def schedule_presentation(request, presentation_id, template_name="schedule/presentation_detail.html", extra_context=None):
-    
+
     if extra_context is None:
         extra_context = {}
-    
+
     presentation = get_object_or_404(Presentation, id=presentation_id, kind__published=True)
-    
+
     if request.user.is_authenticated():
         bookmarks = UserBookmark.objects.filter(
             user=request.user, presentation=presentation
         )
         presentation.bookmarked = bookmarks.exists()
-    
+
     return render_to_response(template_name, dict({
         "presentation": presentation,
         "timezone": settings.SCHEDULE_TIMEZONE,
@@ -91,7 +91,7 @@ def schedule_presentation_list(request, kind_slug):
 
 
 def schedule_tutorials(request):
-    
+
     tutorials = {
         "wed": {
             "morning": {
@@ -122,7 +122,7 @@ def schedule_tutorials(request):
             }
         }
     }
-    
+
     ctx = {
         "tutorials": tutorials,
         "timezone": settings.SCHEDULE_TIMEZONE,
@@ -150,21 +150,21 @@ def pairwise(iterable):
 
 
 class Timetable(object):
-    
+
     def __init__(self, slots, user=None):
         self.slots = slots
-        
+
         if user.is_authenticated():
             self.user = user
         else:
             self.user = None
-    
+
     @property
     def tracks(self):
         return Track.objects.filter(
             pk__in = self.slots.exclude(track=None).values_list("track", flat=True).distinct()
         ).order_by("name")
-    
+
     def __iter__(self):
         times = sorted(set(itertools.chain(*self.slots.values_list("start", "end"))))
         slots = list(self.slots.order_by("start", "track__name"))
@@ -186,7 +186,7 @@ class Timetable(object):
                 row["colspan"] = 1
             if row["slots"] or next_time is None:
                 yield row
-    
+
     @staticmethod
     def rowspan(times, start, end):
         return times.index(end) - times.index(start)
@@ -209,12 +209,12 @@ def schedule_conference_edit(request):
 
 
 def schedule_conference(request):
-    
+
     if request.user.is_authenticated():
         user_hash = hash_for_user(request.user)
     else:
         user_hash = None
-    
+
     ctx = {
         "user_hash": user_hash,
         "timetables": [
@@ -231,28 +231,28 @@ def schedule_conference(request):
 
 @login_required
 def schedule_slot_add(request, slot_id, kind):
-    
+
     if not request.user.is_staff:
         return redirect("/")
-    
+
     slot = Slot.objects.get(pk=slot_id)
-    
+
     form_class = {
         "plenary": PlenaryForm,
         "break": RecessForm,
         "presentation": PresentationForm,
     }[kind]
-    
+
     if request.method == "POST":
         form = form_class(request.POST)
-        
+
         if form.is_valid():
             slot_content = form.save(commit=False)
             slot.assign(slot_content)
             return redirect("schedule_conference_edit")
     else:
         form = form_class()
-    
+
     ctx = {
         "slot": slot,
         "kind": kind,
@@ -265,29 +265,29 @@ def schedule_slot_add(request, slot_id, kind):
 
 @login_required
 def schedule_slot_edit(request, slot_id):
-    
+
     if not request.user.is_staff:
         return redirect("/")
-    
+
     slot = Slot.objects.get(pk=slot_id)
     kind = slot.kind.name
-    
+
     form_tuple = {
         "plenary": (PlenaryForm, {"instance": slot.content()}),
         "recess": (RecessForm, {"instance": slot.content()}),
         "presentation": (PresentationForm, {"initial": {"presentation": slot.content()}}),
     }[kind]
-    
+
     if request.method == "POST":
         form = form_tuple[0](request.POST, **form_tuple[1])
-        
+
         if form.is_valid():
             slot_content = form.save(commit=False)
             slot.assign(slot_content, old_content=slot.content())
             return redirect("schedule_conference_edit")
     else:
         form = form_tuple[0](**form_tuple[1])
-    
+
     ctx = {
         "slot": slot,
         "kind": kind,
@@ -300,16 +300,16 @@ def schedule_slot_edit(request, slot_id):
 
 @login_required
 def schedule_slot_remove(request, slot_id):
-    
+
     if not request.user.is_staff:
         return redirect("/")
-    
+
     slot = Slot.objects.get(pk=slot_id)
-    
+
     if request.method == "POST":
         slot.unassign()
         return redirect("schedule_conference_edit")
-    
+
     ctx = {
         "slot": slot,
     }
@@ -318,28 +318,28 @@ def schedule_slot_remove(request, slot_id):
 
 
 def track_list(request):
-    
+
     tracks = Track.objects.order_by("name")
-    
+
     return render_to_response("schedule/track_list.html", {
         "tracks": tracks,
     }, context_instance=RequestContext(request))
 
 
 def track_detail(request, track_id):
-    
+
     track = get_object_or_404(Track, id=track_id)
-    
+
     return render_to_response("schedule/track_detail.html", {
         "track": track,
     }, context_instance=RequestContext(request))
 
 
 def track_detail_none(request):
-    
+
     sessions = Session.objects.filter(track=None)
     slots = Slot.objects.filter(track=None)
-    
+
     return render_to_response("schedule/track_detail_none.html", {
         "sessions": sessions,
         "slots": slots,
@@ -347,18 +347,18 @@ def track_detail_none(request):
 
 
 def session_list(request):
-    
+
     sessions = Session.objects.all()
-    
+
     return render_to_response("schedule/session_list.html", {
         "sessions": sessions,
     }, context_instance=RequestContext(request))
 
 
 def session_detail(request, session_id):
-    
+
     session = get_object_or_404(Session, id=session_id)
-    
+
     chair = None
     chair_denied = False
     chairs = SessionRole.objects.filter(session=session, role=SessionRole.SESSION_ROLE_CHAIR).exclude(status=False)
@@ -369,7 +369,7 @@ def session_detail(request, session_id):
             # did the current user previously try to apply and got rejected?
             if SessionRole.objects.filter(session=session, user=request.user, role=SessionRole.SESSION_ROLE_CHAIR, status=False):
                 chair_denied = True
-    
+
     runner = None
     runner_denied = False
     runners = SessionRole.objects.filter(session=session, role=SessionRole.SESSION_ROLE_RUNNER).exclude(status=False)
@@ -380,7 +380,7 @@ def session_detail(request, session_id):
             # did the current user previously try to apply and got rejected?
             if SessionRole.objects.filter(session=session, user=request.user, role=SessionRole.SESSION_ROLE_RUNNER, status=False):
                 runner_denied = True
-    
+
     if request.method == "POST" and request.user.is_authenticated():
         role = request.POST.get("role")
         if role == "chair":
@@ -399,9 +399,9 @@ def session_detail(request, session_id):
                 session_role = SessionRole.objects.filter(session=session, role=SessionRole.SESSION_ROLE_RUNNER, user=request.user)
                 if session_role:
                     session_role[0].delete()
-        
+
         return redirect("schedule_session_detail", session_id)
-    
+
     return render_to_response("schedule/session_detail.html", {
         "session": session,
         "chair": chair,
@@ -434,19 +434,19 @@ def schedule_user_slot_manage(request, presentation_id):
 def schedule_export_speaker_data(request):
     speakers = set()
     data = ""
-    
+
     for presentation in Presentation.objects.all():
         speakers.add(presentation.speaker)
         for speaker in presentation.additional_speakers.all():
             speakers.add(speaker)
-    
+
     for speaker in speakers:
         if speaker.user_id is None:
             data += "NO SPEAKER DATA (contact email: %s)" % speaker.invite_email
         else:
             data += "%s\n\n%s" % (speaker.name.strip(), speaker.biography.strip())
         data += "\n\n%s\n\n" % ("-"*80)
-    
+
     return HttpResponse(data, content_type="text/plain;charset=UTF-8")
 
 
@@ -458,15 +458,15 @@ def schedule_export_panels(request):
 
 
 def schedule_user_bookmarks(request, user_id, user_hash):
-    
+
     user = get_object_or_404(User, id=user_id)
     auth_hash = hash_for_user(user)
-    
+
     if user_hash != auth_hash:
         raise Http404()
-    
+
     bookmarks = UserBookmark.objects.filter(user=user)
-    
+
     cal = Calendar()
     cal.add("prodid", "-//PyCon 2011 Bookmarks//us.pycon.org//EN")
     cal.add("version", "2.0")
@@ -474,7 +474,7 @@ def schedule_user_bookmarks(request, user_id, user_hash):
     cal.add("calscale", "GREGORIAN")
     cal.add("X-WR-CALNAME", "PyCon 2011 Bookmarks - %s" % user.username)
     cal.add("X-WR-TIMEZONE","US/Eastern")
-    
+
     for bookmark in bookmarks:
         p = bookmark.presentation
         if p.slot is not None:
@@ -487,7 +487,7 @@ def schedule_user_bookmarks(request, user_id, user_hash):
             event.add("location", p.slot.track)
             event["uid"] = str(p.pk) + "-2011.us.pycon.org"
             cal.add_component(event)
-    
+
     response = HttpResponse(cal.as_string(), content_type="text/calendar")
     response["Content-Disposition"] = "filename=pycon2011-%s-bookmarks.ics" % user.username.encode("utf-8")
     return response

@@ -164,7 +164,7 @@ def speaker_edit(request, pk=None):
         if form.is_valid():
             form.save()
 
-            speaker_admin_url = 'http://%s/2012/admin/speakers/speaker/%d/' % (request.get_host(), speaker.pk)
+            speaker_admin_url = 'http://%s/2013/admin/speakers/speaker/%d/' % (request.get_host(), speaker.pk)
             content = "%s updated his profile.\n\n %s" % (speaker.name, speaker_admin_url)
             send_mail('[PyCon] Speaker profile updated', content, settings.DEFAULT_FROM_EMAIL, [settings.CONTACT_EMAIL])
 
@@ -180,21 +180,21 @@ def speaker_edit(request, pk=None):
 
 
 def speaker_profile(request, pk, template_name="speakers/speaker_profile.html", extra_context=None):
-    
+
     if extra_context is None:
         extra_context = {}
-    
+
     speaker = get_object_or_404(Speaker, pk=pk)
-    
+
     # schedule may not be installed so we need to check for sessions
     if hasattr(speaker, "sessions"):
         sessions = speaker.sessions.exclude(slot=None).order_by("slot__start")
     else:
         sessions = []
-    
+
     if not sessions:
         raise Http404()
-    
+
     return render_to_response(template_name, dict({
         "speaker": speaker,
         "sessions": sessions,
