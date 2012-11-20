@@ -9,6 +9,7 @@ from biblion.models import Post, Revision
 from biblion.settings import PARSER
 from biblion.utils import can_tweet, load_path_attr
 
+from markitup.widgets import MarkItUpWidget
 
 class AdminPostForm(forms.ModelForm):
     
@@ -29,9 +30,7 @@ class AdminPostForm(forms.ModelForm):
         ),
     )
     content = forms.CharField(
-        widget = forms.Textarea(
-            attrs = {"style": "width: 80%; height: 300px;"},
-        )
+        widget = MarkItUpWidget(),
     )
     publish = forms.BooleanField(
         required = False,
