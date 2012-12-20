@@ -14,10 +14,7 @@ from pycon_project.views import creole_preview
 
 handler500 = "pinax.views.server_error"
 
-
-urlpatterns = patterns("",
-    url(r"^$", redirect_to, {"url": "/%s/"  % settings.PYCON_YEAR}),
-    url(r"^%s/" % settings.PYCON_YEAR, include(patterns("",
+content_patterns = patterns("",
         url(r"^$", direct_to_template, {"template": "homepage.html"}, name="home"),
         url(r"^program/$", direct_to_template, {"template": "pycon/program.html"}, name="program"),
         url(r"^account/signup/$", "pinax.apps.account.views.signup", name="acct_signup"),
@@ -58,7 +55,13 @@ urlpatterns = patterns("",
 
         url(r"^", include("wakawaka.urls")),
 
-    ))),
+    )
+
+urlpatterns = patterns("",
+    url(r"^$", redirect_to, {"url": "/%s/" % settings.PYCON_YEAR}),
+    url(r"^%s/" % settings.PYCON_YEAR, include(content_patterns)),
+    url(r"^en/%s/" % settings.PYCON_YEAR, include(content_patterns, namespace="en")),
+    url(r"^zh_tw/%s/" % settings.PYCON_YEAR, include(content_patterns, namespace="zh_tw")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
