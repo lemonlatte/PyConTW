@@ -6,7 +6,8 @@ import posixpath
 import pinax
 
 PINAX_ROOT = os.path.abspath(os.path.dirname(pinax.__file__))
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+
 
 PYCON_YEAR = "2013"
 
@@ -93,10 +94,11 @@ ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 SECRET_KEY = ""
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = [
-    "django.template.loaders.filesystem.load_template_source",
-    "django.template.loaders.app_directories.load_template_source",
-]
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
 
 MIDDLEWARE_CLASSES = [
     "django.middleware.common.CommonMiddleware",
@@ -119,7 +121,7 @@ TEMPLATE_DIRS = [
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.core.context_processors.auth",
+    "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
@@ -261,4 +263,6 @@ LANGUAGES = (
     ('zh-tw', 'Traditional Chinese'),
 )
 
-LOCALE_PATHS = os.path.join(PROJECT_ROOT, 'locale')
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)

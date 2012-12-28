@@ -7,7 +7,7 @@ from django.views.generic.simple import direct_to_template, redirect_to
 from django.contrib import admin
 admin.autodiscover()
 
-from pinax.apps.account.openid_consumer import PinaxConsumer
+# from pinax.apps.account.openid_consumer import PinaxConsumer
 
 from pycon_project.views import creole_preview
 
@@ -19,7 +19,7 @@ content_patterns = patterns("",
         url(r"^program/$", direct_to_template, {"template": "pycon/program.html"}, name="program"),
         url(r"^account/signup/$", "pinax.apps.account.views.signup", name="acct_signup"),
         url(r"^account/", include("pinax.apps.account.urls")),
-        url(r"^openid/", include(PinaxConsumer().urls)),
+        # url(r"^openid/", include(PinaxConsumer().urls)),
         # url(r"^oauth_access/finish_signup/(?P<service>\w+)/$", "oauth_callbacks.finish_signup", name="oauth_access_finish_signup"),
         # url(r"^oauth_access/", include("oauth_access.urls")),
         url(r"^blog/", include("biblion.urls")),
