@@ -3,6 +3,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.views.generic.simple import direct_to_template, redirect_to
+from django.conf.urls.i18n import i18n_patterns
 
 from django.contrib import admin
 admin.autodiscover()
@@ -50,18 +51,15 @@ content_patterns = patterns("",
         url(r"^venue/shopping/", direct_to_template, {"template": "venue/shopping.html"}, name="shopping"),
         url(r"^venue/share-room/", direct_to_template, {"template": "venue/share_room.html"}, name="share_room"),
 
-        url(r"^boxes/", include("boxes.urls")),
-        (r'^i18n/', include('django.conf.urls.i18n')),
 
-        url(r"^", include("wakawaka.urls")),
+        url(r"^boxes/", include("boxes.urls")),
+        # url(r"^", include("wakawaka.urls")),
 
     )
 
-urlpatterns = patterns("",
+urlpatterns = i18n_patterns("",
     url(r"^$", redirect_to, {"url": "/%s/" % settings.PYCON_YEAR}),
     url(r"^%s/" % settings.PYCON_YEAR, include(content_patterns)),
-    url(r"^en/%s/" % settings.PYCON_YEAR, include(content_patterns, namespace="en")),
-    url(r"^zh_tw/%s/" % settings.PYCON_YEAR, include(content_patterns, namespace="zh_tw")),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
