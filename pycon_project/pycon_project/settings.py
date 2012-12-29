@@ -160,7 +160,7 @@ INSTALLED_APPS = [
     "uni_form",
     "ajax_validation",
     "fixture_generator",
-    "wakawaka",
+    # "wakawaka",
     "biblion",
     "fixture_generator",
     "sorl.thumbnail",
@@ -183,7 +183,7 @@ INSTALLED_APPS = [
 
     # project
     "boxes",
-    "wiki",
+    # "wiki",
 ]
 
 FIXTURE_DIRS = [
@@ -222,14 +222,14 @@ LOGIN_REDIRECT_URLNAME = "home"
 
 EMAIL_CONFIRMATION_DAYS = 3
 
-WAKAWAKA_DEFAULT_INDEX = "index"
-WAKAWAKA_SLUG_REGEX = r"((\w{2,})(/\w{2,})*)" # allow lower case wiki page names
-WAKAWAKA_LOCK_TIMEOUT = 10*60
+# WAKAWAKA_DEFAULT_INDEX = "index"
+# WAKAWAKA_SLUG_REGEX = r"((\w{2,})(/\w{2,})*)" # allow lower case wiki page names
+# WAKAWAKA_LOCK_TIMEOUT = 10*60
 
 MARKITUP_AUTO_PREVIEW = True
 MARKITUP_SET = "markitup/sets/markdown-custom"
 MARKITUP_SKIN = "markitup/skins/simple"
-MARKITUP_FILTER = ("wiki.markdown_parser.parse", {})
+MARKITUP_FILTER = ("utils.markdown_parser", {})
 MARKITUP_MEDIA_URL = STATIC_URL
 
 ACCEPTING_PROPOSALS = True
