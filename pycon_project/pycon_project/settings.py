@@ -20,12 +20,12 @@ TEMPLATE_DEBUG = DEBUG
 # tells Pinax to serve media through the staticfiles app.
 SERVE_MEDIA = DEBUG
 
-INTERNAL_IPS = [
+INTERNAL_IPS = (
     "127.0.0.1",
-]
+)
 
-ADMINS = [
-]
+ADMINS = (
+)
 
 MANAGERS = ADMINS
 
@@ -75,10 +75,10 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "site_media", "static")
 STATIC_URL = "/%s/site_media/static/" % PYCON_YEAR
 
 # Additional directories which hold static files
-STATICFILES_DIRS = [
+STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, "static", PYCON_YEAR),
     os.path.join(PINAX_ROOT, "themes", PINAX_THEME, "static"),
-]
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -100,10 +100,9 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE_CLASSES = (
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "middleware.I18NUrl",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -112,15 +111,15 @@ MIDDLEWARE_CLASSES = [
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "reversion.middleware.RevisionMiddleware",
     #"debug_toolbar.middleware.DebugToolbarMiddleware",
-]
+)
 
 ROOT_URLCONF = "pycon_project.urls"
 
-TEMPLATE_DIRS = [
+TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, "templates"),
-]
+)
 
-TEMPLATE_CONTEXT_PROCESSORS = [
+TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
@@ -130,9 +129,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "pinax.core.context_processors.pinax_settings",
     "pinax.apps.account.context_processors.account",
     "symposion.review.context_processors.permissions",
-]
+)
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -184,11 +183,11 @@ INSTALLED_APPS = [
     # project
     "boxes",
     # "wiki",
-]
+)
 
-FIXTURE_DIRS = [
+FIXTURE_DIRS = (
     os.path.join(PROJECT_ROOT, "fixtures"),
-]
+)
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
@@ -199,11 +198,11 @@ DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
 
-BIBLION_PARSER = ["wiki.markdown_parser.parse", {}]
-BIBLION_SECTIONS = [
+BIBLION_PARSER = ("wiki.markdown_parser.parse", {})
+BIBLION_SECTIONS = (
     ("general", "General"),
     ("announcement", "Announcement"),
-]
+)
 
 ACCOUNT_OPEN_SIGNUP = False
 ACCOUNT_REQUIRED_EMAIL = True
@@ -211,9 +210,9 @@ ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_AUTHENTICATION = False
 ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = True
 
-AUTHENTICATION_BACKENDS = [
+AUTHENTICATION_BACKENDS = (
     "pinax.apps.account.auth_backends.AuthenticationBackend",
-]
+)
 
 LOGIN_REDIRECT_URLNAME = "home"
 LOGIN_URL = "/%s/account/login/" % PYCON_YEAR
@@ -236,9 +235,9 @@ ACCEPTING_PROPOSALS = True
 
 SCHEDULE_TIMEZONE = "Asia/Taipei"
 
-MAILOUT_MODULES = [
+MAILOUT_MODULES = (
     "symposion.email_lists.organizers",
-]
+)
 
 REDIS_PARAMS = dict(host="127.0.0.1")
 

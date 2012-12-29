@@ -11,6 +11,10 @@ admin.autodiscover()
 # from pinax.apps.account.openid_consumer import PinaxConsumer
 
 
+urlpatterns = patterns("",
+    (r'^i18n/', include('django.conf.urls.i18n')),
+)
+
 handler500 = "pinax.views.server_error"
 
 content_patterns = patterns("",
@@ -55,7 +59,7 @@ content_patterns = patterns("",
 
     )
 
-urlpatterns = i18n_patterns("",
+urlpatterns += i18n_patterns("",
     url(r"^$", redirect_to, {"url": "/%s/" % settings.PYCON_YEAR}),
     url(r"^%s/" % settings.PYCON_YEAR, include(content_patterns)),
 )

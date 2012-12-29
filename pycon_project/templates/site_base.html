@@ -44,9 +44,9 @@
 
 {% block footer %}
     <div id="setlanguage">
-        <form action="/2013/i18n/setlang/" method="post">{% csrf_token %}
+        <form action="/i18n/setlang/" method="post">{% csrf_token %}
             <span>Language&nbsp;&nbsp;</span>
-            <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+            <input name="next" type="hidden" value="/" />
             <select name="language">
             {% for lang in LANGUAGES %}
                 <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
