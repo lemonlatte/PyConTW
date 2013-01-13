@@ -7,17 +7,17 @@ from biblion.settings import ALL_SECTION_NAME, SECTIONS
 register = template.Library()
 
 class LatestAnnouncementsNode(template.Node):
-    
+
     def __init__(self, context_var):
         self.context_var = context_var
-    
+
     def render(self, context):
         language_code = context['request'].LANGUAGE_CODE
 
         latest_posts = Post.objects.current()
         latest_posts = latest_posts.filter(section=3)
         latest_posts = latest_posts.filter(language=language_code)
-        context[self.context_var] = latest_posts[:5]
+        context[self.context_var] = latest_posts[:4]
         return u""
 
 @register.tag
@@ -27,10 +27,10 @@ def latest_announcements(parser, token):
 
 
 class LatestBlogPostsNode(template.Node):
-    
+
     def __init__(self, context_var):
         self.context_var = context_var
-    
+
     def render(self, context):
         language_code = context['request'].LANGUAGE_CODE
 
@@ -46,10 +46,10 @@ def latest_blog_posts(parser, token):
     return LatestBlogPostsNode(bits[2])
 
 class LatestBlogPostNode(template.Node):
-    
+
     def __init__(self, context_var):
         self.context_var = context_var
-    
+
     def render(self, context):
         try:
             latest_post = Post.objects.current()[0]
@@ -66,11 +66,11 @@ def latest_blog_post(parser, token):
 
 
 class LatestSectionPostNode(template.Node):
-    
+
     def __init__(self, section, context_var):
         self.section = template.Variable(section)
         self.context_var = context_var
-    
+
     def render(self, context):
         section = self.section.resolve(context)
         post = Post.objects.section(section, queryset=Post.objects.current())
@@ -92,10 +92,10 @@ def latest_section_post(parser, token):
 
 
 class BlogSectionsNode(template.Node):
-    
+
     def __init__(self, context_var):
         self.context_var = context_var
-    
+
     def render(self, context):
         sections = [(ALL_SECTION_NAME, "All")] + SECTIONS
         context[self.context_var] = sections

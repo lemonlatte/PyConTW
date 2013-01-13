@@ -51,10 +51,7 @@ form ul li label input {
 }
 
 header{
-    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.header{
+    background-color: white;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -99,7 +96,17 @@ header{
 }
 
 .blog-post h2{
+    color: #0085a3;
+    word-wrap:break-word;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.blog-post h2 a{
+    color: #0086a2;
+}
+
+.blog-post .emphasis{
+    color: #e3543b;
 }
 
 #venue-map {
