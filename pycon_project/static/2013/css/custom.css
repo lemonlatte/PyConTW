@@ -63,12 +63,18 @@ form ul li label input {
     display: inline;
 }
 
-#setlanguage {
-    float: right;
+.banner{
+    height: 327px;
+    background-image: url("/2013/site_media/static/img/mkv.jpg");
+    background-position: -469px 0;
+}
+
+.language_form{
+    padding-right: 30px;
 }
 
 #venue-map {
-    background: #fff; 
+    background: #fff;
     padding: 10px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -95,6 +101,7 @@ form ul li label input {
 }
 
 footer {
+    text-align: center;
     margin-top: 100px;
     padding: 10px;
     border-top: 1px solid #eee;

@@ -34,6 +34,7 @@
                         {% include "_account_bar.html" %}
                     </div>
 
+                    {% include "_nav.html" %}
                     {% if messages %}
                         {% for message in messages %}
                             <div class="alert alert-block">
@@ -45,19 +46,7 @@
                         {% endfor %}
                     {% endif %}
 
-                    <div class="row">
-                        <div class="span5">
-                            <a href="/"><img src="{{ STATIC_URL }}img/pycontw2013-site-logo.png" /></a>
-                        </div>
-                        <div class="span7">
-                            <div id="head-desc">
-                            <div class="date">{% trans "May 25-26" %}</div>
-                            <div class="address">{% trans "Academia Sinica, Taipei" %}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% include "_nav.html" %}
+                    <div class="container banner"></div>
 
                     {% comment %}
                     {% block header %}

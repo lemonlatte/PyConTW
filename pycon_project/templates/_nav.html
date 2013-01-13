@@ -2,7 +2,6 @@
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -36,6 +35,16 @@
                         <a href="/2013/blog/" id="link-blog">{% trans "Blog" %}</a>
                     </li>
                 </ul>
+                <form action="/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
+                    <span>Language&nbsp;&nbsp;</span>
+                    <input name="next" type="hidden" value="/" />
+                    <select class="span2" name="language">
+                    {% for lang in LANGUAGES %}
+                        <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
+                    {% endfor %}
+                    </select>
+                    <input class="btn" type="submit" value="Go" />
+                </form>
             </div>
         </div>
     </div>

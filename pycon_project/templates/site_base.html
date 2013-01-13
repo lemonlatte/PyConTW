@@ -43,19 +43,6 @@
 {% endblock %}
 
 {% block footer %}
-    <div id="setlanguage">
-        <form action="/i18n/setlang/" method="post">{% csrf_token %}
-            <span>Language&nbsp;&nbsp;</span>
-            <input name="next" type="hidden" value="/" />
-            <select name="language">
-            {% for lang in LANGUAGES %}
-                <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
-            {% endfor %}
-            </select>
-            <input type="submit" value="Go" />
-        </form>
-    </div>
-
     <p>
         PyCon Taiwan 2013 built with <a href="http://djangoproject.com">Django</a> and <a href="http://pinaxproject.com">Pinax</a>. Hosting provided by <a href="http://streetvoice.com">StreetVoice</a>. Built by Lemonlatte, LittleQ and Shane.
     <br />
