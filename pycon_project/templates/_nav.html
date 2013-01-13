@@ -1,51 +1,49 @@
 {% load i18n common %}
 <div class="navbar">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
+    <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="{% re_active request "^/2013/$" %}">
-                        <a href="{% url home %}" id="link-about">{% trans "Home" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/about/" %}">
-                        <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/program/" %}">
-                        <a href="{% url program %}" id="link-program">{% trans "Program" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/sponsors/" %}">
-                        <a href="{% url sponsor_list %}" id="link-sponsors">{% trans "Sponsors" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/speaker/" %}">
-                        <a href="{% url speaker_dashboard %}" id="link-speakers">{% trans "Speakers" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/registration/" %}">
-                        <a href="{% url registration %}" id="link-registration">{% trans "Registration" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/venue/" %}">
-                        <a href="{% url venue_detail %}" id="link-venue">{% trans "Venue" %}</a>
-                    </li>
-                    <li class="{% active request "/2013/blog/" %}">
-                        <a href="/2013/blog/" id="link-blog">{% trans "Blog" %}</a>
-                    </li>
-                </ul>
-                <form action="/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
-                    <span>Language&nbsp;&nbsp;</span>
-                    <input name="next" type="hidden" value="/" />
-                    <select class="span2" name="language">
-                    {% for lang in LANGUAGES %}
-                        <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
-                    {% endfor %}
-                    </select>
-                    <input class="btn" type="submit" value="Go" />
-                </form>
-            </div>
+        <div class="nav-collapse">
+            <ul class="nav">
+                <li class="{% re_active request "^/2013/$" %}">
+                    <a href="{% url home %}" id="link-about">{% trans "Home" %}</a>
+                </li>
+                <li class="{% active request "/2013/about/" %}">
+                    <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
+                </li>
+                <li class="{% active request "/2013/program/" %}">
+                    <a href="{% url program %}" id="link-program">{% trans "Program" %}</a>
+                </li>
+                <li class="{% active request "/2013/sponsors/" %}">
+                    <a href="{% url sponsor_list %}" id="link-sponsors">{% trans "Sponsors" %}</a>
+                </li>
+                <li class="{% active request "/2013/speaker/" %}">
+                    <a href="{% url speaker_dashboard %}" id="link-speakers">{% trans "Speakers" %}</a>
+                </li>
+                <li class="{% active request "/2013/registration/" %}">
+                    <a href="{% url registration %}" id="link-registration">{% trans "Registration" %}</a>
+                </li>
+                <li class="{% active request "/2013/venue/" %}">
+                    <a href="{% url venue_detail %}" id="link-venue">{% trans "Venue" %}</a>
+                </li>
+                <li class="{% active request "/2013/blog/" %}">
+                    <a href="/2013/blog/" id="link-blog">{% trans "Blog" %}</a>
+                </li>
+            </ul>
+            <form action="/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
+                <span>Language&nbsp;&nbsp;</span>
+                <input name="next" type="hidden" value="/" />
+                <select class="span2" name="language">
+                {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
+                {% endfor %}
+                </select>
+                <input class="btn" type="submit" value="Go" />
+            </form>
         </div>
     </div>
 </div>

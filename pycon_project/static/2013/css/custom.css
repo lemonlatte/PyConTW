@@ -1,5 +1,6 @@
 body {
     background: url(../img/bg-repeat.jpg);
+    color: #878787;
 }
 
 #body {
@@ -34,21 +35,6 @@ a.boxes-edit-link {
     display: none;
 }
 
-.navbar-inner {
-    /*
-    background: -moz-linear-gradient(top, #000, #376F91);
-    background: -webkit-linear-gradient(top, #000, #376F91);
-    background: #376F91;
-    */
-}
-
-.navbar .nav > li > a {
-    /*
-    color: white;
-    font-size: 12pt;
-    */
-}
-
 h1, h2, h3 {
     margin: 20px 0px 5px 0px;
     padding-bottom: 10px;
@@ -63,16 +49,19 @@ form ul li label input {
     display: inline;
 }
 
+.nav{
+    font-size: 18px;
+}
+
+.navbar .nav > li > a{
+    text-shadow: none;
+}
+
 .banner{
     height: 327px;
     background-image: url(../img/mkv.jpg);
-    background-position: -469px 0;
+    background-position: -400px 0;
 }
-
-.language_form{
-    padding-right: 30px;
-}
-
 
 .brick{
     background-color: white;
@@ -86,21 +75,14 @@ form ul li label input {
 
 .brick.first{
     height: 275px;
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
 }
 
 .blog-post div.teaser {
-  font-style:italic;
   word-wrap:break-word;
 }
 
 .brick{
+    height: 300px;
 }
 
 .blog-post{
