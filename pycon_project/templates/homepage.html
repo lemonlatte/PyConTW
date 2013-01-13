@@ -55,7 +55,7 @@
                         <div class="teaser">{{ post.teaser_html|safe }}</div>
                     </div>
                 </div>
-            {% if forloop.counter0|end_row %}
+                {% if posts.count < 4 and forloop.last or forloop.counter0 == 3 %}
                 <div class="span3 brick">
                     <div class="blog-post">
                         <h2><a href="#">{% trans "Eyes on our hardcore " %}<span class="emphasis">{%trans "Sponsors" %}</span>!</a></h2>
@@ -64,6 +64,8 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
+            {% if forloop.counter0|end_row %}
             </div>
             {% endif %}
         {% endif %}
