@@ -1,5 +1,6 @@
 body {
     background: url(../img/bg-repeat.jpg);
+    font-family: "新細明體";
     color: #878787;
 }
 
@@ -49,6 +50,14 @@ form ul li label input {
     display: inline;
 }
 
+header{
+    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header{
+    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .nav{
     font-size: 18px;
 }
@@ -89,6 +98,10 @@ form ul li label input {
     margin: 0 20px;
 }
 
+.blog-post h2{
+    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 #venue-map {
     background: #fff;
     padding: 10px;
@@ -113,7 +126,7 @@ form ul li label input {
     color: #c61d1b;
     font-size: 2em;
     line-height: 1em;
-    margin-left; 50px;
+    margin-left: 50px;
 }
 
 footer {
