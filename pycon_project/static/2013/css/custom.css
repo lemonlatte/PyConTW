@@ -1,5 +1,5 @@
 body {
-    background: url(../img/main_bg.jpeg);
+    background: url(../img/bg-repeat.jpg);
 }
 
 #body {
@@ -65,12 +65,46 @@ form ul li label input {
 
 .banner{
     height: 327px;
-    background-image: url("/2013/site_media/static/img/mkv.jpg");
+    background-image: url(../img/mkv.jpg);
     background-position: -469px 0;
 }
 
 .language_form{
     padding-right: 30px;
+}
+
+
+.brick{
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.brick.first{
+    height: 275px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.blog-post div.teaser {
+  font-style:italic;
+  word-wrap:break-word;
+}
+
+.brick{
+}
+
+.blog-post{
+    margin: 0 20px;
 }
 
 #venue-map {
