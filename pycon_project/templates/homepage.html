@@ -58,9 +58,9 @@
                 {% if posts.count < 4 and forloop.last or forloop.counter0 == 3 %}
                 <div class="span3 brick">
                     <div class="blog-post">
-                        <h2><a href="#">{% trans "Eyes on our hardcore " %}<span class="emphasis">{%trans "Sponsors" %}</span>!</a></h2>
+                        <h2><a href="{% url sponsor_list %}"><span class="emphasis">{%trans "Sponsors!" %}</span></a></h2>
                         <div class="teaser">
-                            <img src="" alt="">
+                            <a href="http://www.webfaction.com" target="_blank"><img src="{{ STATIC_URL }}/img/wf.png" alt=""></a>
                         </div>
                     </div>
                 </div>
