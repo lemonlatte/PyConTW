@@ -63,6 +63,10 @@ header{
     text-shadow: none;
 }
 
+.navbar .nav > li > a:hover{
+    color: inherit;
+}
+
 .banner{
     height: 327px;
     background-image: url(../img/mkv.jpg);
