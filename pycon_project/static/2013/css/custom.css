@@ -69,8 +69,14 @@ header{
 
 .banner{
     height: 327px;
+    overflow: hidden;
+}
+
+.banner .images{
     background-image: url(../img/mkv.jpg);
-    background-position: -400px 0;
+    margin-left: -500px;
+    width: 1920px;
+    height: 327px;
 }
 
 .banner_caption {
