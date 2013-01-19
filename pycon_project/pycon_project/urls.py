@@ -10,7 +10,6 @@ admin.autodiscover()
 
 # from pinax.apps.account.openid_consumer import PinaxConsumer
 
-
 urlpatterns = patterns("",
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
@@ -34,7 +33,7 @@ content_patterns = patterns("",
         url(r"^mailout/", include("mailout.urls")),
         url(r"^sponsors/", include("symposion.sponsors_pro.urls")),
         url(r"^admin/", include(admin.site.urls)),
-        # url(r"^creole_preview/$", creole_preview, name="creole_preview"),
+        url(r"^creole_preview/$", "pycon_project.views.creole_preview", name="creole_preview"),
         url(r"^feed/(?P<section>\w+)/$", "biblion.views.blog_feed", name="blog_feed"),
         url(r"^markitup/", include("markitup.urls")),
         # url(r"^export_data/speakers\.txt$", "schedule.views.schedule_export_speaker_data"),
