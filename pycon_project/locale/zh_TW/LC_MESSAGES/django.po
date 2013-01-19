@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-13 20:24+0800\n"
+"POT-Creation-Date: 2013-01-20 00:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -347,6 +347,14 @@ msgstr "地點"
 #: templates/_nav.html:34 templates/biblion/blog_base.html:11
 msgid "Blog"
 msgstr "部落格"
+
+#: templates/base.html:66
+msgid "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan"
+msgstr "中央研究院人文社會科學館"
+
+#: templates/base.html:67
+msgid "May 25 - 26"
+msgstr "5月25日-26日"
 
 #: templates/homepage.html:62
 msgid "Sponsors!"
@@ -1072,18 +1080,11 @@ msgstr ""
 msgid "History for %(slug)s"
 msgstr ""
 
-#, fuzzy
-#~ msgid "May 25-26"
-#~ msgstr "5月25日-26日"
-
 #~ msgid "Academia Sinica, Taipei"
 #~ msgstr "中央研究院"
 
 #~ msgid "Humanities & Social Sciences Building, Academia Sinica"
-#~ msgstr "中央研究院人文社會館"
-
-#~ msgid "Building of Humanity and Social Sciences"
-#~ msgstr "中央研究院人文社會館"
+#~ msgstr "中央研究院人文社會科學館"
 
 #~ msgid ""
 #~ "You will be able to come back and revise your submission until the "

@@ -58,7 +58,14 @@
                     {% endcomment %}
                 </div>
             </header>
-            <div class="banner"></div>
+            <div class="banner">
+                <div class="banner_caption">
+                    <a href="http://tw.pycon.org/2013/venue/">
+                    <p>{% trans "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan" %}</p>
+                    <p>{% trans "May 25 - 26" %}</p>
+                    </a>
+                </div>
+            </div>
             <section id="subnav">
                 <div class="container">
                     {% block subnav_base %}{% block subnav %}{% endblock %}{% endblock %}

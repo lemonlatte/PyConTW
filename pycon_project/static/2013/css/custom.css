@@ -73,6 +73,19 @@ header{
     background-position: -400px 0;
 }
 
+.banner_caption {
+    position: absolute;
+    padding: 10px 20px;
+    top: 120px; left: 84px;
+    border-radius: 4px 4px 4px 4px;
+    color: rgb(3, 137, 164);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.banner_caption p{
+    font-size: 1.5em;
+}
+
 .brick{
     background-color: white;
     margin-top: 10px;
