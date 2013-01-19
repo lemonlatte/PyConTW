@@ -34,4 +34,4 @@ nashvegas==0.7
 gunicorn
 redis
 django-extensions
-django-bootstrap-form
+django-bootstrap-form>=2.0.5
