@@ -49,4 +49,4 @@ Running a web server
 
 In development you should run::
 
-    (pycon)$ python manage.py pycon_project/runserver
+    (pycon)$ python pycon_project/manage.py runserver
