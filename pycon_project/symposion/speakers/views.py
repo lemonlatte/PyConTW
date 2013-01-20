@@ -166,7 +166,7 @@ def speaker_edit(request, pk=None):
 
             speaker_admin_url = 'http://%s/2013/admin/speakers/speaker/%d/' % (request.get_host(), speaker.pk)
             content = "%s updated his profile.\n\n %s" % (speaker.name, speaker_admin_url)
-            send_mail('[PyCon] Speaker profile updated', content, settings.DEFAULT_FROM_EMAIL, [settings.CONTACT_EMAIL])
+            send_mail('[PyConTW] Speaker profile updated', content, settings.DEFAULT_FROM_EMAIL, [settings.CONTACT_EMAIL])
 
             messages.success(request, "Speaker profile updated.")
             return redirect("speaker_dashboard")
