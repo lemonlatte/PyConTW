@@ -4,6 +4,14 @@ body {
     color: #878787;
 }
 
+p {
+    /* Bootstrap v2.0.1 Styles */
+    margin: 0 0 9px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
 #body {
     margin: 10px 0px;
     min-height: 400px;
@@ -30,6 +38,10 @@ body {
 .account-bar {
     text-align: right;
     margin: 10px 0px;
+}
+
+.site-logo {
+    max-width: 100%;
 }
 
 a.boxes-edit-link {
@@ -80,9 +92,8 @@ header{
 }
 
 .banner_caption {
-    position: absolute;
     padding: 10px 20px;
-    top: 120px; left: 84px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     border-radius: 4px 4px 4px 4px;
     color: rgb(3, 137, 164);
     background-color: rgba(255, 255, 255, 0.8);

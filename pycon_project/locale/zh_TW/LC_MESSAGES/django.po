@@ -348,15 +348,15 @@ msgstr "地點"
 msgid "Blog"
 msgstr "部落格"
 
-#: templates/base.html:66
+#: templates/homepage.html:31
 msgid "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan"
 msgstr "中央研究院人文社會科學館"
 
-#: templates/base.html:67
+#: templates/homepage.html:32
 msgid "May 25 - 26"
 msgstr "5月25日-26日"
 
-#: templates/homepage.html:62
+#: templates/homepage.html:69
 msgid "Sponsors!"
 msgstr "熱情的贊助商"
 

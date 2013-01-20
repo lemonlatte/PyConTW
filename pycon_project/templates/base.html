@@ -57,15 +57,12 @@
                     {% endcomment %}
                 </div>
             </header>
-            <div class="banner">
+            <div class="banner hidden-phone">
                 <div class="images">
                 </div>
-                <div class="banner_caption">
-                    <a href="http://tw.pycon.org/2013/venue/">
-                    <p>{% trans "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan" %}</p>
-                    <p>{% trans "May 25 - 26" %}</p>
-                    </a>
-                </div>
+            </div>
+            <div class="visible-phone">
+                <img class="site-logo" src="{{ STATIC_URL }}img/pycontw2013-site-logo.png"/>
             </div>
             <section id="subnav">
                 <div class="container">
@@ -77,9 +74,13 @@
                 {% block banner %}{% endblock %}
                 <section id="body">
                     <div class="container">
+                        <div class="row">
+                            <div class="span10 offset1">
 
                         {% block body_base %}{% block body %}{% endblock %}{% endblock %}
 
+                            </div>
+                        </div>
                     </div>
 
                 </section>

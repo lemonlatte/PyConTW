@@ -23,9 +23,15 @@
 
     {% latest_announcements as posts %}
 
-    <div class="container" style="">
-        <div class="row">
+    <div class="">
+        <div class="row-fluid">
             <div class="span6">
+                <div class="banner_caption">
+                    <a href="http://tw.pycon.org/2013/venue/">
+                    <p>{% trans "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan" %}</p>
+                    <p>{% trans "May 25 - 26" %}</p>
+                    </a>
+                </div>
                 <img src="{{ STATIC_URL }}img/aboutpycon.jpg" alt="">
                 {% box "homepage_main" %}
                 <img src="{{ STATIC_URL }}img/gallery.jpg" alt="">
