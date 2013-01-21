@@ -13,15 +13,15 @@ from symposion.speakers.models import Speaker
 
 
 class SpeakerForm(forms.ModelForm):
-    
+
     sessions_preference = forms.ChoiceField(
-        label = _('Sessions preference'),
+        label = _('Sessions type'),
         widget=forms.RadioSelect(),
-        choices=Speaker.SESSION_COUNT_CHOICES,
+        choices=Speaker.SESSION_TYPE_CHOICES,
         required=False,
-        help_text=_("If you've submitted multiple proposals, please let us know if you only want to give one or if you'd like to give two talks.")
+        help_text=_("If you don't sure what kind of talk you are giving, please choose 'Talk' and discuss with us.")
     )
-    
+
     class Meta:
         model = Speaker
         fields = [
@@ -35,13 +35,13 @@ class SpeakerForm(forms.ModelForm):
         widgets = {
             "biography": MarkItUpWidget(),
         }
-    
+
     def clean_twitter_username(self):
         value = self.cleaned_data["twitter_username"]
         if value.startswith("@"):
             value = value[1:]
         return value
-    
+
     def clean_sessions_preference(self):
         value = self.cleaned_data["sessions_preference"]
         if not value:
@@ -50,7 +50,7 @@ class SpeakerForm(forms.ModelForm):
 
 
 class SignupForm(PinaxSignupForm):
-    
+
     def save(self, speaker, request=None):
         # don't assume a username is available. it is a common removal if
         # site developer wants to use email authentication.
