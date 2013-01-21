@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 00:21+0800\n"
+"POT-Creation-Date: 2013-01-22 00:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -345,11 +345,12 @@ msgid "Venue"
 msgstr "地點"
 
 #: templates/_nav.html:34 templates/biblion/blog_base.html:11
+#: templates/biblion/blog_list.html:4
 msgid "Blog"
 msgstr "部落格"
 
 #: templates/homepage.html:32
-msgid "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan"
+msgid "Academia Sinica: Humanities and Social Sciences Building"
 msgstr "中央研究院人文社會科學館"
 
 #: templates/homepage.html:33
@@ -643,7 +644,7 @@ msgid ""
 "%(CONTACT_EMAIL)s</a>."
 msgstr ""
 
-#: templates/biblion/blog_list.html:15
+#: templates/biblion/blog_list.html:17
 msgid "No blog posts have been published."
 msgstr ""
 
@@ -1079,7 +1080,6 @@ msgstr ""
 #, python-format
 msgid "History for %(slug)s"
 msgstr ""
-
 
 #~ msgid ""
 #~ "If you've submitted multiple proposals, please let us know if you only "
