@@ -96,11 +96,11 @@ header{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     border-radius: 4px 4px 4px 4px;
     color: rgb(3, 137, 164);
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .banner_caption p{
     font-size: 1.5em;
+    line-height: 1.25em;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
