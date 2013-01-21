@@ -159,7 +159,7 @@ msgstr "兩場"
 
 #: symposion/speakers/models.py:20
 msgid "Name"
-msgstr "名稱"
+msgstr "姓名"
 
 #: symposion/speakers/models.py:21
 msgid "Biography"
@@ -191,11 +191,11 @@ msgstr "你的 twitter 帳號"
 
 #: symposion/speakers/models.py:32
 msgid "Release permission"
-msgstr "發佈權限"
+msgstr "同意發佈"
 
 #: symposion/speakers/models.py:32
 msgid "I agree PyCon TW can release my slides and video recording."
-msgstr "我同意 PyCon TW 可以釋出我的投影片跟影片。"
+msgstr "同意 PyCon TW 可以公開我的投影片跟影片。"
 
 #: symposion/speakers/views.py:29
 msgid "submit another talk proposal"
