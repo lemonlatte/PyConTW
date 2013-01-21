@@ -15,11 +15,11 @@ from symposion.speakers.models import Speaker
 class SpeakerForm(forms.ModelForm):
 
     sessions_preference = forms.ChoiceField(
-        label = _('Sessions type'),
+        label=_('Talk Types'),
         widget=forms.RadioSelect(),
         choices=Speaker.SESSION_TYPE_CHOICES,
         required=False,
-        help_text=_("If you don't sure what kind of talk you are giving, please choose 'Talk' and discuss with us.")
+        help_text=_("If you're not sure which type to choose, select 'Regular Talk' here, and discuss with Program Team for a better arrangement.")
     )
 
     class Meta:

@@ -12,7 +12,7 @@ from markitup.fields import MarkupField
 class Speaker(models.Model):
 
     SESSION_TYPE_CHOICES = [
-        (1, _("Talk (30 minutes)")),
+        (1, _("Regular Talk (30 minutes)")),
         (2, _("Lightning Talk (5 minutes)"))
     ]
 
@@ -29,17 +29,17 @@ class Speaker(models.Model):
     annotation = models.TextField() # staff only
     invite_email = models.CharField(max_length=200, unique=True, null=True, db_index=True)
     invite_token = models.CharField(max_length=40, db_index=True)
-    release_permission = models.BooleanField(_("Release permission"), help_text=_('I agree PyCon TW can release my slides and video recording.'))
+    release_permission = models.BooleanField(_("Agree to Release"), help_text=_('I agree PyCon TW can release my slides and video recording.'))
     created = models.DateTimeField(
         default = datetime.datetime.now,
         editable = False
     )
     sessions_preference = models.IntegerField(
-        _("Sessions type"),
+        _("Talk Types"),
         choices=SESSION_TYPE_CHOICES,
         null=True,
         blank=True,
-        help_text=_("If you don't sure what kind of talk you are giving, please choose 'Talk' and discuss with us.")
+        help_text=_("If you're not sure which type to choose, select 'Regular Talk' here, and discuss with Program Team for a better arrangement.")
     )
 
     def __unicode__(self):

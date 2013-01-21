@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 00:35+0800\n"
+"POT-Creation-Date: 2013-01-22 00:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,22 +140,22 @@ msgid "Duration"
 msgstr "長度"
 
 #: symposion/speakers/forms.py:18 symposion/speakers/models.py:38
-msgid "Sessions type"
-msgstr "議程類型"
+msgid "Talk Types"
+msgstr "類型"
 
 #: symposion/speakers/forms.py:22 symposion/speakers/models.py:42
 msgid ""
-"If you don't sure what kind of talk you are giving, please choose 'Talk' and "
-"discuss with us."
-msgstr "如果暫時不確定哪種類型，建議優先選擇一般演講再與議程人員協商。"
+"If you're not sure which type to choose, select 'Regular Talk' here, and "
+"discuss with Program Team for a better arrangement."
+msgstr "如果暫時不確定哪種類型，建議優先選擇一般演講，再與議程人員協商。"
 
 #: symposion/speakers/models.py:15
-msgid "Talk (30 minutes)"
-msgstr "一般演講 (30 分鐘)"
+msgid "Regular Talk (30 minutes)"
+msgstr "一般演講 (30分鐘)"
 
 #: symposion/speakers/models.py:16
 msgid "Lightning Talk (5 minutes)"
-msgstr "閃電秀 (5 分鐘)"
+msgstr "閃電秀 (5分鐘)"
 
 #: symposion/speakers/models.py:20
 msgid "Name"
@@ -190,7 +190,7 @@ msgid "Your Twitter account, with or without the @"
 msgstr "你的 twitter 帳號"
 
 #: symposion/speakers/models.py:32
-msgid "Release permission"
+msgid "Agree to Release"
 msgstr "同意發佈"
 
 #: symposion/speakers/models.py:32
@@ -1080,29 +1080,3 @@ msgstr ""
 #, python-format
 msgid "History for %(slug)s"
 msgstr ""
-
-#~ msgid ""
-#~ "If you've submitted multiple proposals, please let us know if you only "
-#~ "want to give one or if you'd like to give two talks."
-#~ msgstr "如果你已經提交多個提案, 請讓我們知道你只想進行一場或兩場演講。"
-
-#~ msgid "One session"
-#~ msgstr "一場"
-
-#~ msgid "Two session"
-#~ msgstr "兩場"
-
-#~ msgid "Academia Sinica, Taipei"
-#~ msgstr "中央研究院"
-
-#~ msgid "Humanities & Social Sciences Building, Academia Sinica"
-#~ msgstr "中央研究院人文社會科學館"
-
-#~ msgid ""
-#~ "You will be able to come back and revise your submission until the "
-#~ "deadline.\n"
-#~ "            Remember that speakers must register and pay to attend the "
-#~ "conference."
-#~ msgstr ""
-#~ "你可以在截止期限之前回來並重新審視你的提案。\n"
-#~ " 記住, 講者仍必須註冊並繳交費用才能參加會議。"
