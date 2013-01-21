@@ -349,7 +349,7 @@ msgid "Blog"
 msgstr "部落格"
 
 #: templates/homepage.html:31
-msgid "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan"
+msgid "Academia Sinica: Humanities and Social Sciences Building"
 msgstr "中央研究院人文社會科學館"
 
 #: templates/homepage.html:32
