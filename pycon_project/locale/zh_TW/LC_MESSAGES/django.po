@@ -350,12 +350,8 @@ msgid "Blog"
 msgstr "部落格"
 
 #: templates/homepage.html:32
-msgid "Academia Sinica: Humanities and Social Sciences Building"
-msgstr "中央研究院人文社會科學館"
-
-#: templates/homepage.html:33
-msgid "May 25 - 26"
-msgstr "5月25日-26日"
+msgid "Academia Sinica: Humanities and Social Sciences Building on May 25 - 26"
+msgstr "中央研究院人文社會科學館 5月25-26日"
 
 #: templates/homepage.html:68
 msgid "Sponsors!"
