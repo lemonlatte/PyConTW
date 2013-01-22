@@ -20,6 +20,6 @@
     <div class="blog-post">
         <h1>{{ post.title }}</h1>
         {% include "biblion/dateline.html" %}
-        <div class="content">{{ post.teaser_html|safe }}{{ post.content_html|safe }}</div>
+        <div class="content">{{ post.content_html|safe }}</div>
     </div>
 {% endblock %}
