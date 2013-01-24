@@ -144,7 +144,8 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     "bootstrapform",
     "gunicorn",
-    "nashvegas",
+    # "nashvegas",
+    "south",
     "django_extensions",
     "common",
 

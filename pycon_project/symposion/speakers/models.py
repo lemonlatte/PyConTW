@@ -11,13 +11,14 @@ from markitup.fields import MarkupField
 
 class Speaker(models.Model):
 
-    SESSION_TYPE_CHOICES = [
-        (1, _("Regular Talk (30 minutes)")),
-        (2, _("Lightning Talk (5 minutes)"))
-    ]
+    # SESSION_TYPE_CHOICES = [
+    #     (1, _("Regular Talk (30 minutes)")),
+    #     (2, _("Lightning Talk (5 minutes)"))
+    # ]
 
     user = models.OneToOneField(User, null=True, related_name="speaker_profile")
     name = models.CharField(_("Name"), max_length=100)
+    nickname = models.CharField(_("Nickname"), max_length=100, blank=True, default="")
     biography = MarkupField(_("Biography"), help_text=_("A little bit about you. Edit using <a href='http://warpedvisions.org/projects/markdown-cheat-sheet/' target='_blank'>Markdown</a>."))
     photo = models.ImageField(_("Photo"), upload_to="speaker_photos", blank=True, help_text=_('Please upload JPG with 950x1190 dimension above'))
     twitter_username = models.CharField(
@@ -26,7 +27,7 @@ class Speaker(models.Model):
         blank = True,
         help_text = _("Your Twitter account, with or without the @")
     )
-    annotation = models.TextField() # staff only
+    annotation = models.TextField()  # staff only
     invite_email = models.CharField(max_length=200, unique=True, null=True, db_index=True)
     invite_token = models.CharField(max_length=40, db_index=True)
     release_permission = models.BooleanField(_("Agree to Release"), help_text=_('I agree PyCon TW can release my slides and video recording.'))
@@ -34,13 +35,13 @@ class Speaker(models.Model):
         default = datetime.datetime.now,
         editable = False
     )
-    sessions_preference = models.IntegerField(
-        _("Talk Types"),
-        choices=SESSION_TYPE_CHOICES,
-        null=True,
-        blank=True,
-        help_text=_("If you're not sure which type to choose, select 'Regular Talk' here, and discuss with Program Team for a better arrangement.")
-    )
+    # sessions_preference = models.IntegerField(
+    #     _("Talk Types"),
+    #     choices=SESSION_TYPE_CHOICES,
+    #     null=True,
+    #     blank=True,
+    #     help_text=_("If you're not sure which type to choose, select 'Regular Talk' here, and discuss with Program Team for a better arrangement.")
+    # )
 
     def __unicode__(self):
         if self.user:
