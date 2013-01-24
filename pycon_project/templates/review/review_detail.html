@@ -100,7 +100,7 @@
 
 {% block body %}
     <h1>Proposal Review</h1>
-    
+
     <div class="proposal">
         <div class="result {{ proposal.result.get_accepted_display }}">
             <div class="text">
@@ -126,7 +126,7 @@
             {% endif %}
         </div>
         <h2>#{{ proposal.number }}: {{ proposal.title }}</h2>
-        
+
         <div class="badges">
             {% if proposal.extreme_pycon %}
                 <div class="badge extreme">E</div>
@@ -135,30 +135,30 @@
                 <div class="badge invited">I</div>
             {% endif %}
         </div>
-        
-        
+
+
         <p>
             {% if proposal.cancelled %}
                 Cancelled
             {% endif %}
         </p>
-        
+
         <div>
             {{ proposal.description }}
         </div>
-        
-        <p><b>Type</b>: {{ proposal.get_session_type_display }}</p>
-        
+
+        <p><b>Type</b>: {{ proposal.get_kind_display }}</p>
+
         <h3>Abstract</h3>
         <div class="abstract">
             {{ proposal.abstract|safe }}
         </div>
-        
+
         <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
-        
+
         <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p>
         <p>{{ proposal.speaker.biography_html|safe }}</p>
-        
+
         {% if proposal.additional_speakers.all %}
             <p><b>Additional speakers</b>:</p>
             <ul>
@@ -171,7 +171,7 @@
             {% endfor %}
             </ul>
         {% endif %}
-        
+
         {% if proposal.additional_notes %}
             <h3>Additional Notes (private from submitter)</h3>
             <div class="additional_notes">
@@ -179,11 +179,11 @@
             </div>
         {% endif %}
     </div>
-    
+
     {% if is_reviewer_admin or not proposal.invited %}
-        
+
         <h2>Votes</h2>
-        
+
         <div class="{{ latest_vote.css_class }}">
             <div class="vote-count-box plus-one-box">
                 <div class="label">+1 vote{{ proposal.plus_one|pluralize }}</div>
@@ -207,7 +207,7 @@
             </div>
             <div style="clear: both"></div>
         </div>
-        
+
         {% for review in reviews %}
             <div class="review-box">
                 <div class="vote">{{ review.vote }}</div>
@@ -222,9 +222,9 @@
         <hr />
 
         <h3>Vote and Comment</h3>
-        
+
         <p>You can revise your vote or comment multiple times with an existing vote.</p>
-        
+
         <form method="POST" action="" class="uniForm">
             {% csrf_token %}
             <fieldset>
@@ -232,9 +232,9 @@
                 <input class="btn" type="submit" name="vote_submit" value="submit" />
             </fieldset>
         </form>
-        
+
         <h2>Conversation with Proposer</h2>
-        
+
         {% for message in proposal.messages.all %}
             <div class="review-box">
                 <div class="comment">{{ message.message|safe }}</div>
@@ -242,11 +242,11 @@
             </div>
             <div class="clear"></div>
         {% endfor %}
-        
+
         <h3>Leave a Message</h3>
-        
+
         <p>You can leave a message for the proposer here.</p>
-        
+
         <form action="" method="POST" class="uniForm" accept-charset="utf-8">
             {% csrf_token %}
             <fieldset>

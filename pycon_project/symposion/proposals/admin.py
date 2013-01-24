@@ -23,7 +23,6 @@ admin.site.register(Proposal,
         "cancelled",
     ],
     list_filter = [
-        "kind__name",
         #"result__accepted",
     ],
     actions = [export_as_csv_action("CSV Export", fields=[

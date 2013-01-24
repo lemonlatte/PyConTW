@@ -73,7 +73,7 @@
 
 {% block body %}
     <h1>{{ proposal.title }}</h1>
-    
+
     <div class="proposal">
         <div class="badges">
             {% if proposal.extreme_pycon %}
@@ -83,25 +83,25 @@
                 <div class="badge invited">I</div>
             {% endif %}
         </div>
-        
+
         <div class="clear"></div>
-        
+
         <div>
             {{ proposal.description }}
         </div>
-        
-        <p><b>Type</b>: {{ proposal.get_session_type_display }}</p>
-        
+
+        <p><b>Type</b>: {{ proposal.get_kind_display }}</p>
+
         <h3>Abstract</h3>
         <div class="abstract">
             {{ proposal.abstract_html|safe }}
         </div>
-        
+
         <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
-        
+
         <p><b>Speaker</b>: {{ proposal.speaker }}</p>
         <p>{{ proposal.speaker.biography_html|safe }}</p>
-        
+
         {% if proposal.additional_speakers.all %}
             <p><b>Additional speakers</b>:</p>
             <ul>
