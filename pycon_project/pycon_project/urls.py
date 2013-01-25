@@ -16,7 +16,7 @@ urlpatterns = patterns("",
 
 handler500 = "pinax.views.server_error"
 
-content_patterns = patterns("",
+urlpatterns += i18n_patterns("",
         url(r"^$", direct_to_template, {"template": "homepage.html"}, name="home"),
         url(r"^program/$", direct_to_template, {"template": "pycon/program.html"}, name="program"),
         url(r"^account/signup/$", "pinax.apps.account.views.signup", name="acct_signup"),
@@ -58,10 +58,10 @@ content_patterns = patterns("",
 
     )
 
-urlpatterns += i18n_patterns("",
-    url(r"^$", redirect_to, {"url": "/%s/" % settings.PYCON_YEAR}),
-    url(r"^%s/" % settings.PYCON_YEAR, include(content_patterns)),
-)
+# urlpatterns += i18n_patterns("",
+#     url(r"^$", include(content_patterns)),
+#     url(r"^%s/" % settings.PYCON_YEAR, include(content_patterns)),
+# )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
