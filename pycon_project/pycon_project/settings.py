@@ -128,6 +128,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "pinax.core.context_processors.pinax_settings",
     "pinax.apps.account.context_processors.account",
+    "pycon_project.context_processors.language_path",
     "symposion.review.context_processors.permissions",
 )
 
@@ -143,7 +144,8 @@ INSTALLED_APPS = (
     "django.contrib.staticfiles",
     "bootstrapform",
     "gunicorn",
-    "nashvegas",
+    # "nashvegas",
+    "south",
     "django_extensions",
     "common",
 

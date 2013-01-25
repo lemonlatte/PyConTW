@@ -32,13 +32,19 @@ class Proposal(models.Model):
         (2, _("Chinese")),
     )
 
+    TYPE_CHOICES = (
+        (1, _("Regular Talk (30 minutes)")),
+        (2, _("Lightening Talk (5 minutes)")),
+    )
+
     title = models.CharField(_("Title"), max_length=100)
     description = models.TextField(
         _("Description"),
         max_length = 400, # @@@ need to enforce 400 in UI
         help_text = _("If your talk is accepted this will be made public and printed in the program. Should be one paragraph, maximum 400 characters.")
     )
-    kind = models.ForeignKey(PresentationKind, verbose_name=_("Kind"))
+    # kind = models.ForeignKey(PresentationKind, verbose_name=_("Kind"))
+    kind = models.PositiveSmallIntegerField(_('Type'), choices=TYPE_CHOICES)
     category = models.ForeignKey(PresentationCategory, verbose_name=_("Category"))
     language = models.PositiveSmallIntegerField(_('Default spoken language'), choices=LANGUAGE_CHOICES)
     abstract = MarkupField(

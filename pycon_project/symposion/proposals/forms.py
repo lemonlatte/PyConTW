@@ -9,7 +9,15 @@ from symposion.proposals.models import Proposal, ProposalFile
 
 
 class ProposalForm(forms.ModelForm):
-    
+
+    kind = forms.ChoiceField(
+        label=_('Types'),
+        widget=forms.RadioSelect(),
+        choices=Proposal.TYPE_CHOICES,
+        required=True,
+        help_text=_("If you're not sure which type to choose, select 'Regular Talk' here, and discuss with Program Team for a better arrangement.")
+    )
+
     class Meta:
         model = Proposal
         fields = [
@@ -27,14 +35,14 @@ class ProposalForm(forms.ModelForm):
             "abstract": MarkItUpWidget(),
             "additional_notes": MarkItUpWidget(),
         }
-    
+
     def __init__(self, *args, **kwargs):
         super(ProposalForm, self).__init__(*args, **kwargs)
         self.fields["category"] = forms.ModelChoiceField(
             label = _('Category'),
             queryset = PresentationCategory.objects.order_by("name")
         )
-    
+
     def clean_description(self):
         value = self.cleaned_data["description"]
         if len(value) > 400:
@@ -48,20 +56,15 @@ class ProposalSubmitForm(ProposalForm):
 
     def __init__(self, *args, **kwargs):
         super(ProposalSubmitForm, self).__init__(*args, **kwargs)
-        self.fields["kind"] = forms.ModelChoiceField(
-            label = _("Kind"),
-            queryset = PresentationKind.available(),
-            widget = forms.RadioSelect(),
-            empty_label = None
-        )
 
 
 class ProposalEditForm(ProposalForm):
-    
+
     class Meta:
         model = Proposal
         fields = [
             "title",
+            "kind",
             "category",
             "audience_level",
             "description",
@@ -76,15 +79,15 @@ class ProposalEditForm(ProposalForm):
 
 
 class AddSpeakerForm(forms.Form):
-    
+
     email = forms.EmailField(
         label = "Email address of new speaker (use their email address, not yours)"
     )
-    
+
     def __init__(self, *args, **kwargs):
         self.proposal = kwargs.pop("proposal")
         super(AddSpeakerForm, self).__init__(*args, **kwargs)
-    
+
     def clean_email(self):
         value = self.cleaned_data["email"]
         exists = self.proposal.additional_speakers.filter(

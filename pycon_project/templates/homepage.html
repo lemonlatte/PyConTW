@@ -28,8 +28,7 @@
             <div class="span6">
                 <div class="banner_caption">
                     <a href="http://tw.pycon.org/2013/venue/">
-                    <p>{% trans "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan" %}</p>
-                    <p>{% trans "May 25 - 26" %}</p>
+                    <p>{% trans "Academia Sinica: Humanities and Social Sciences Building on May 25 - 26" %}</p>
                     </a>
                 </div>
                 <img src="{{ STATIC_URL }}img/aboutpycon.jpg" alt="">
@@ -52,7 +51,7 @@
         {% for post in posts %}
         {% if forloop.counter0 > 0 %}
             {% if forloop.counter0|start_row %}
-            <div class="row">
+            <div class="row-fluid">
             {% endif %}
                 <div class="span3 brick">
                     <div class="blog-post">

@@ -57,7 +57,7 @@ def group_proposals(proposals):
 
 @login_required
 def review_list(request, username=None):
-    
+
     if username:
         # if they're not a reviewer admin and they aren't the person whose
         # review list is being asked for, don't let them in
@@ -67,18 +67,16 @@ def review_list(request, username=None):
     else:
         if not request.user.groups.filter(name="reviewers").exists():
             return access_not_permitted(request)
-    
+
     queryset = Proposal.objects.select_related("speaker__user", "result")
     if username:
         reviewed = LatestVote.objects.filter(user__username=username).values_list("proposal", flat=True)
         queryset = queryset.filter(pk__in=reviewed)
     queryset = queryset.order_by("submitted")
-    
+
     # filter out tutorials for now
-    queryset = queryset.exclude(kind__name__iexact="tutorial")
-    
     admin = request.user.groups.filter(name="reviewers-admins").exists()
-    
+
     proposals = group_proposals(proposals_generator(request, queryset, username=username, check_speaker=not admin))
     rated_proposals = queryset.filter(reviews__user=request.user)
 
@@ -93,11 +91,11 @@ def review_list(request, username=None):
 
 @login_required
 def review_tutorial_list(request, username=None):
-    
+
     # @@@ eventually this will be better integrated with the view above, but
     # for now this allows for separate tutorial reviews with a separate group
     # of reviewers, per PyCon's requirements
-    
+
     if username:
         # if they're not a reviewer admin and they aren't the person whose
         # review list is being asked for, don't let them in
@@ -107,20 +105,18 @@ def review_tutorial_list(request, username=None):
     else:
         if not request.user.groups.filter(name="reviewers-tutorials").exists():
             return access_not_permitted(request)
-    
+
     queryset = Proposal.objects.select_related("speaker__user", "result")
     if username:
         reviewed = LatestVote.objects.filter(user__username=username).values_list("proposal", flat=True)
         queryset = queryset.filter(pk__in=reviewed)
     queryset = queryset.order_by("submitted")
-    
+
     # this time, it's ONLY the tutorials
-    queryset = queryset.filter(kind__name__iexact="tutorial")
-    
     admin = request.user.groups.filter(name="reviewers-admins").exists()
-    
+
     proposals = group_proposals(proposals_generator(request, queryset, username=username, check_speaker=not admin))
-    
+
     ctx = {
         "proposals": proposals,
         "username": username,
@@ -131,10 +127,10 @@ def review_tutorial_list(request, username=None):
 
 @login_required
 def review_admin(request):
-    
+
     if not request.user.groups.filter(name="reviewers-admins").exists():
         return access_not_permitted(request)
-    
+
     def reviewers():
         queryset = User.objects.distinct().filter(groups__name="reviewers")
         for obj in queryset:
@@ -168,52 +164,52 @@ def review_admin(request):
 def review_detail(request, pk):
     proposals = Proposal.objects.select_related("result")
     proposal = get_object_or_404(proposals, pk=pk)
-    
+
     admin = request.user.groups.filter(name="reviewers-admins").exists()
     speakers = [s.user for s in proposal.speakers()]
-    
-    if proposal.kind.name.lower() == "tutorial":
+
+    if proposal.get_kind_display().lower() == "tutorial":
         if not request.user.groups.filter(name="reviewers-tutorials").exists():
             return access_not_permitted(request)
     else:
         if not request.user.groups.filter(name="reviewers").exists():
             return access_not_permitted(request)
-    
+
     if not admin and request.user in speakers:
         return access_not_permitted(request)
-    
+
     try:
         latest_vote = LatestVote.objects.get(proposal=proposal, user=request.user)
     except LatestVote.DoesNotExist:
         latest_vote = None
-    
+
     if request.method == "POST":
         if request.user in speakers:
             return access_not_permitted(request)
         if hasattr(proposal, "invited") and proposal.invited:
             return access_not_permitted(request)
-        
+
         if "vote_submit" in request.POST:
             review_form = ReviewForm(request.POST)
             if review_form.is_valid():
-                
+
                 review = review_form.save(commit=False)
                 review.user = request.user
                 review.proposal = proposal
                 review.save()
-                
+
                 return redirect(request.path)
             else:
                 message_form = SpeakerCommentForm()
         elif "message_submit" in request.POST:
             message_form = SpeakerCommentForm(request.POST)
             if message_form.is_valid():
-                
+
                 message = message_form.save(commit=False)
                 message.user = request.user
                 message.proposal = proposal
                 message.save()
-                
+
                 for speaker in speakers:
                     if speaker and speaker.email:
                         ctx = {
@@ -225,12 +221,12 @@ def review_detail(request, pk):
                             [speaker.email], "proposal_new_message",
                             context = ctx
                         )
-                
+
                 return redirect(request.path)
         elif "result_submit" in request.POST:
             if admin:
                 result = request.POST["result_submit"]
-                
+
                 if result == "accept":
                     proposal.result.accepted = True
                     proposal.result.save()
@@ -240,7 +236,7 @@ def review_detail(request, pk):
                 elif result == "undecide":
                     proposal.result.accepted = None
                     proposal.result.save()
-            
+
             return redirect(request.path)
     else:
         initial = {}
@@ -251,16 +247,16 @@ def review_detail(request, pk):
         else:
             review_form = ReviewForm(initial=initial)
         message_form = SpeakerCommentForm()
-    
+
     proposal.comment_count = proposal.result.comment_count
     proposal.total_votes = proposal.result.vote_count
     proposal.plus_one = proposal.result.plus_one
     proposal.plus_zero = proposal.result.plus_zero
     proposal.minus_zero = proposal.result.minus_zero
     proposal.minus_one = proposal.result.minus_one
-    
+
     reviews = Review.objects.filter(proposal=proposal).order_by("-submitted_at")
-    
+
     return render_to_response("review/review_detail.html", {
         "proposal": proposal,
         "latest_vote": latest_vote,
@@ -282,14 +278,14 @@ def review_delete(request, pk):
 
 @login_required
 def review_stats(request, key=None):
-    
+
     ctx = {}
-    
+
     if not request.user.groups.filter(name="reviewers").exists():
         return access_not_permitted(request)
-    
+
     queryset = Proposal.objects.select_related("speaker__user", "result")
-    
+
     proposals = {
         # proposals with at least one +1 and no -1s, sorted by the 'score'
         "good": queryset.filter(result__plus_one__gt=0, result__minus_one=0).order_by("-result__score"),
@@ -300,9 +296,9 @@ def review_stats(request, key=None):
         # proposals with both a +1 and -1, sorted by total votes (highest first)
         "controversial": queryset.filter(result__plus_one__gt=0, result__minus_one__gt=0).order_by("-result__vote_count"),
     }
-    
+
     admin = request.user.groups.filter(name="reviewers-admins").exists()
-    
+
     if key:
         ctx.update({
             "key": key,
@@ -311,7 +307,7 @@ def review_stats(request, key=None):
         })
     else:
         ctx["proposals"] = proposals
-    
+
     ctx = RequestContext(request, ctx)
     return render_to_response("review/review_stats.html", ctx)
 
@@ -358,7 +354,7 @@ def review_bulk_accept(request):
             return redirect("review_list")
     else:
         form = BulkPresentationForm()
-    
+
     return render_to_response("review/review_bulk_accept.html", {
         "form": form,
     }, context_instance=RequestContext(request))

@@ -18,10 +18,7 @@ class RecessForm(forms.ModelForm):
 
 def presentation_queryset(include=None):
     qs = Presentation.objects.all()
-    qs = qs.filter(
-        Q(kind__name__iexact="talk") |
-        Q(kind__name__iexact="panel")
-    )
+
     if include:
         qs = qs.filter(Q(slot=None) | Q(pk=include.pk))
     else:
@@ -31,19 +28,19 @@ def presentation_queryset(include=None):
 
 
 class PresentationModelChoiceField(forms.ModelChoiceField):
-    
+
     def __init__(self, *args, **kwargs):
         kwargs["queryset"] = Presentation.objects.none()
         super(PresentationModelChoiceField, self).__init__(*args, **kwargs)
-    
+
     def label_from_instance(self, obj):
         return u"%d: %s" % (obj.pk, obj.title)
 
 
 class PresentationForm(forms.Form):
-    
+
     presentation = PresentationModelChoiceField()
-    
+
     def __init__(self, *args, **kwargs):
         presentation = kwargs.get("initial", {}).get("presentation", None)
         super(PresentationForm, self).__init__(*args, **kwargs)
@@ -51,6 +48,6 @@ class PresentationForm(forms.Form):
             self.fields["presentation"].queryset = presentation_queryset(include=presentation)
         else:
             self.fields["presentation"].queryset = presentation_queryset()
-    
+
     def save(self, commit=True):
         return self.cleaned_data["presentation"]

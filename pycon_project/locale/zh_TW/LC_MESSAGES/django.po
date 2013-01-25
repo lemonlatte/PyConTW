@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-20 00:28+0800\n"
+"POT-Creation-Date: 2013-01-22 00:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,26 +140,26 @@ msgid "Duration"
 msgstr "長度"
 
 #: symposion/speakers/forms.py:18 symposion/speakers/models.py:38
-msgid "Sessions preference"
-msgstr "議程偏好"
+msgid "Talk Types"
+msgstr "類型"
 
 #: symposion/speakers/forms.py:22 symposion/speakers/models.py:42
 msgid ""
-"If you've submitted multiple proposals, please let us know if you only want "
-"to give one or if you'd like to give two talks."
-msgstr "如果你已經提交多個提案, 請讓我們知道你只想進行一場或兩場演講。"
+"If you're not sure which type to choose, select 'Regular Talk' here, and "
+"discuss with Program Team for a better arrangement."
+msgstr "如果暫時不確定哪種類型，建議優先選擇一般演講，再與議程人員協商。"
 
 #: symposion/speakers/models.py:15
-msgid "One session"
-msgstr "一場"
+msgid "Regular Talk (30 minutes)"
+msgstr "一般演講 (30分鐘)"
 
 #: symposion/speakers/models.py:16
-msgid "Two session"
-msgstr "兩場"
+msgid "Lightning Talk (5 minutes)"
+msgstr "閃電秀 (5分鐘)"
 
 #: symposion/speakers/models.py:20
 msgid "Name"
-msgstr "名稱"
+msgstr "姓名"
 
 #: symposion/speakers/models.py:21
 msgid "Biography"
@@ -190,12 +190,12 @@ msgid "Your Twitter account, with or without the @"
 msgstr "你的 twitter 帳號"
 
 #: symposion/speakers/models.py:32
-msgid "Release permission"
-msgstr "發佈權限"
+msgid "Agree to Release"
+msgstr "同意發佈"
 
 #: symposion/speakers/models.py:32
 msgid "I agree PyCon TW can release my slides and video recording."
-msgstr "我同意 PyCon TW 可以釋出我的投影片跟影片。"
+msgstr "我同意 PyCon TW 可以公開我的投影片跟影片。"
 
 #: symposion/speakers/views.py:29
 msgid "submit another talk proposal"
@@ -345,18 +345,15 @@ msgid "Venue"
 msgstr "地點"
 
 #: templates/_nav.html:34 templates/biblion/blog_base.html:11
+#: templates/biblion/blog_list.html:4
 msgid "Blog"
 msgstr "部落格"
 
-#: templates/homepage.html:31
-msgid "No. 128, Sec. 2, Academic Rd., Nankang, Taipei, Taiwan"
-msgstr "中央研究院人文社會科學館"
-
 #: templates/homepage.html:32
-msgid "May 25 - 26"
-msgstr "5月25日-26日"
+msgid "Academia Sinica: Humanities and Social Sciences Building on May 25 - 26"
+msgstr "中央研究院人文社會科學館 5月25-26日"
 
-#: templates/homepage.html:69
+#: templates/homepage.html:68
 msgid "Sponsors!"
 msgstr "熱情的贊助商"
 
@@ -643,7 +640,7 @@ msgid ""
 "%(CONTACT_EMAIL)s</a>."
 msgstr ""
 
-#: templates/biblion/blog_list.html:15
+#: templates/biblion/blog_list.html:17
 msgid "No blog posts have been published."
 msgstr ""
 
@@ -1079,18 +1076,3 @@ msgstr ""
 #, python-format
 msgid "History for %(slug)s"
 msgstr ""
-
-#~ msgid "Academia Sinica, Taipei"
-#~ msgstr "中央研究院"
-
-#~ msgid "Humanities & Social Sciences Building, Academia Sinica"
-#~ msgstr "中央研究院人文社會科學館"
-
-#~ msgid ""
-#~ "You will be able to come back and revise your submission until the "
-#~ "deadline.\n"
-#~ "            Remember that speakers must register and pay to attend the "
-#~ "conference."
-#~ msgstr ""
-#~ "你可以在截止期限之前回來並重新審視你的提案。\n"
-#~ " 記住, 講者仍必須註冊並繳交費用才能參加會議。"

@@ -1,6 +1,8 @@
 {% extends "biblion/blog_base.html" %}
 {% load i18n %}
 
+{% block head_title %}{% trans "Blog" %}{% endblock %}
+
 {% block primary %}
     {% if posts %}
         {% for post in posts %}
