@@ -4,7 +4,7 @@ body {
     color: #878787;
 }
 
-p {
+p, li {
     /* Bootstrap v2.0.1 Styles */
     margin: 0 0 9px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -51,6 +51,7 @@ a.boxes-edit-link {
 h1, h2, h3 {
     margin: 20px 0px 5px 0px;
     padding-bottom: 10px;
+    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 form ul {
@@ -129,10 +130,13 @@ header{
     margin: 0 20px;
 }
 
+.blog-post h1{
+    font-size: 36px;
+}
+
 .blog-post h2{
     color: #0085a3;
     word-wrap:break-word;
-    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .blog-post h2 a{
