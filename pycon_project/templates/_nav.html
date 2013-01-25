@@ -34,7 +34,7 @@
                     <a href="{% url blog %}" id="link-blog">{% trans "Blog" %}</a>
                 </li>
             </ul>
-            <form action="/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
+            <form action="{% if not debug %}/2013{% endif %}/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
                 <span>Language&nbsp;&nbsp;</span>
                 <input name="next" type="hidden" value="{{ no_lang_path }}" />
                 <select class="span2" name="language">
