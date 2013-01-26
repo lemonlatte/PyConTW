@@ -63,29 +63,29 @@ form ul li label input {
     display: inline;
 }
 
-header{
+header {
     background-color: white;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.nav{
+.nav {
     font-size: 18px;
 }
 
-.navbar .nav > li > a{
+.navbar .nav > li > a {
     text-shadow: none;
 }
 
-.navbar .nav > li > a:hover{
+.navbar .nav > li > a:hover {
     color: inherit;
 }
 
-.banner{
+.banner {
     height: 327px;
     overflow: hidden;
 }
 
-.banner .images{
+.banner .images {
     background-image: url(../img/mkv.jpg);
     margin-left: -500px;
     width: 1920px;
@@ -98,13 +98,13 @@ header{
     color: rgb(3, 137, 164);
 }
 
-.banner_caption p{
+.banner_caption p {
     font-size: 1.5em;
     line-height: 1.25em;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.brick{
+.brick {
     background-color: white;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -114,7 +114,7 @@ header{
     border-radius: 15px;
 }
 
-.brick.first{
+.brick.first {
     height: 275px;
 }
 
@@ -122,28 +122,28 @@ header{
   word-wrap:break-word;
 }
 
-.brick{
+.brick {
     height: 300px;
 }
 
-.blog-post{
+.blog-post {
     margin: 0 20px;
 }
 
-.blog-post h1{
+.blog-post h1 {
     font-size: 36px;
 }
 
-.blog-post h2{
+.blog-post h2 {
     color: #0085a3;
     word-wrap:break-word;
 }
 
-.blog-post h2 a{
+.blog-post h2 a {
     color: #0086a2;
 }
 
-.blog-post .emphasis{
+.blog-post .emphasis {
     color: #e3543b;
 }
 
