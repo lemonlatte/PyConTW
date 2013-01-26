@@ -35,3 +35,4 @@ gunicorn
 redis
 django-extensions
 django-bootstrap-form>=2.0.5
+south
