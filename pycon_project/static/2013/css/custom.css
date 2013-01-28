@@ -30,6 +30,12 @@ p, .content li {
     line-height: 1.6em;
 }
 
+#sponsor_button {
+    font-family: 'Droid Sans Mono';
+    text-align: left;
+    margin: 1.5em;
+}
+
 .sponsor {
     text-align: center;
     margin-bottom: 10px;
@@ -123,7 +129,19 @@ header {
 }
 
 .brick {
-    height: 300px;
+    height: 200px;
+}
+
+.sponsor_brick {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+
+    height:300px;
 }
 
 .blog-post {
@@ -174,6 +192,21 @@ header {
     font-size: 2em;
     line-height: 1em;
     margin-left: 50px;
+}
+
+#pycon_intro {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+#sponsor_logos {
+    text-align: center;
+    vertical-align: baseline;
+    clear: both;
+}
+
+#sponsor_logos img {
+    margin: 1em;
 }
 
 footer {
