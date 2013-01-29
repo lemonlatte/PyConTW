@@ -129,7 +129,7 @@ header {
 }
 
 .brick {
-    height: 200px;
+    min-height: 200px;
 }
 
 .sponsor_brick {
