@@ -33,7 +33,7 @@ p, .content li {
 #sponsor_button {
     font-family: 'Droid Sans Mono';
     text-align: left;
-    margin: 1.5em;
+    margin: 10px;
 }
 
 .sponsor {
@@ -125,32 +125,12 @@ header {
     border-radius: 15px;
 }
 
-.brick.first {
-    height: 275px;
-}
-
 .blog-post div.teaser {
   word-wrap:break-word;
 }
 
-.brick {
-    min-height: 200px;
-}
-
-.sponsor_brick {
-    background-color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-
-    height:300px;
-}
-
 .blog-post {
-    margin: 0 20px;
+    margin: 20px;
 }
 
 .blog-post h1 {
