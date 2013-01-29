@@ -41,6 +41,11 @@ p, .content li {
     margin-bottom: 10px;
 }
 
+.sponsor-list img {
+    width: 100%;
+    max-width: 500px;
+}
+
 .account-bar {
     text-align: right;
     margin: 10px 0px;
