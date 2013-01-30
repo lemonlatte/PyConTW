@@ -110,6 +110,7 @@ MIDDLEWARE_CLASSES = (
     "django.contrib.messages.middleware.MessageMiddleware",
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "reversion.middleware.RevisionMiddleware",
+    "pycon_project.middleware.NoCache",
     #"debug_toolbar.middleware.DebugToolbarMiddleware",
 )
 
