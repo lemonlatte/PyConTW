@@ -357,11 +357,11 @@ msgstr "中央研究院人文社會科學館 5月25-26日"
 msgid "Sponsors!"
 msgstr "熱情的贊助商"
 
-#: templates/homepage.html:46
+#: templates/homepage.html:47
 msgid "Sponsor PyConTW 2013!"
 msgstr "贊助 PyConTW 2013！"
 
-#: templates/homepage.html:46 templates/homepage.html:50
+#: templates/homepage.html:47 templates/homepage.html:51
 msgid "/2013/en/blog/2012/11/21/how-to-pycon-taiwan-en/"
 msgstr "/2013/zh-tw/blog/2012/11/21/how-to-pycon-taiwan-zh/"
 
