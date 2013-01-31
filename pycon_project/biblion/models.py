@@ -29,28 +29,28 @@ def ig(L, i):
 
 
 class Post(models.Model):
-    
+
     SECTION_CHOICES = [(1, ALL_SECTION_NAME)] + zip(range(2, 2 + len(SECTIONS)), ig(SECTIONS, 1))
-    LANGUAGE_CHOICES = [('zh-tw', 'Traditional Chinese'), ('en', 'English')]
-    
+    LANGUAGE_CHOICES = [('zh', 'Traditional Chinese'), ('en', 'English')]
+
     section = models.IntegerField(choices=SECTION_CHOICES)
-    
+
     title = models.CharField(max_length=90)
     slug = models.SlugField(unique=True)
     author = models.ForeignKey(User, related_name="posts")
-    
+
     teaser_html = models.TextField(editable=False)
     content_html = models.TextField(editable=False)
-    
+
     tweet_text = models.CharField(max_length=140, editable=False)
-    
+
     created = models.DateTimeField(default=datetime.now, editable=False) # when first revision was created
     updated = models.DateTimeField(null=True, blank=True, editable=False) # when last revision was create (even if not published)
     published = models.DateTimeField(null=True, blank=True, editable=False) # when last published
-    
+
     view_count = models.IntegerField(default=0, editable=False)
     language = models.CharField(max_length=5, choices=LANGUAGE_CHOICES)
-    
+
     @staticmethod
     def section_idx(slug):
         """
@@ -59,7 +59,7 @@ class Post(models.Model):
         if slug == ALL_SECTION_NAME:
             return 1
         return dict(zip(ig(SECTIONS, 0), range(2, 2 + len(SECTIONS))))[slug]
-    
+
     @property
     def section_slug(self):
         """
@@ -69,30 +69,30 @@ class Post(models.Model):
         if self.section == 1:
             return ALL_SECTION_NAME
         return dict(zip(range(2, 2 + len(SECTIONS)), ig(SECTIONS, 0)))[self.section]
-    
+
     def rev(self, rev_id):
         return self.revisions.get(pk=rev_id)
-    
+
     def current(self):
         "the currently visible (latest published) revision"
         return self.revisions.exclude(published=None).order_by("-published")[0]
-    
+
     def latest(self):
         "the latest modified (even if not published) revision"
         try:
             return self.revisions.order_by("-updated")[0]
         except IndexError:
             return None
-    
+
     class Meta:
         ordering = ("-published",)
         get_latest_by = "published"
-    
+
     objects = PostManager()
-    
+
     def __unicode__(self):
         return self.title
-    
+
     def as_tweet(self):
         if not self.tweet_text:
             current_site = Site.objects.get_current()
@@ -109,7 +109,7 @@ class Post(models.Model):
                 result["url"],
             )
         return self.tweet_text
-    
+
     def tweet(self):
         if can_tweet():
             account = twitter.Api(
@@ -120,11 +120,11 @@ class Post(models.Model):
         else:
             raise ImproperlyConfigured("Unable to send tweet due to either "
                 "missing python-twitter or required settings.")
-    
+
     def save(self, **kwargs):
         self.updated_at = datetime.now()
         super(Post, self).save(**kwargs)
-    
+
     def get_absolute_url(self):
         if self.published:
             name = "blog_post"
@@ -140,7 +140,7 @@ class Post(models.Model):
                 "post_pk": self.pk,
             }
         return reverse(name, kwargs=kwargs)
-    
+
     def inc_views(self):
         self.view_count += 1
         self.save()
@@ -148,38 +148,38 @@ class Post(models.Model):
 
 
 class Revision(models.Model):
-    
+
     post = models.ForeignKey(Post, related_name="revisions")
-    
+
     title = models.CharField(max_length=90)
     teaser = models.TextField()
-    
+
     content = models.TextField()
-    
+
     author = models.ForeignKey(User, related_name="revisions")
-    
+
     updated = models.DateTimeField(default=datetime.now)
     published = models.DateTimeField(null=True, blank=True)
-    
+
     view_count = models.IntegerField(default=0, editable=False)
-    
+
     def __unicode__(self):
         return 'Revision %s for %s' % (self.updated.strftime('%Y%m%d-%H%M'), self.post.slug)
-    
+
     def inc_views(self):
         self.view_count += 1
         self.save()
 
 
 class Image(models.Model):
-    
+
     post = models.ForeignKey(Post, related_name="images")
-    
+
     image_path = models.ImageField(upload_to="images/%Y/%m/%d")
     url = models.CharField(max_length=150, blank=True)
-    
+
     timestamp = models.DateTimeField(default=datetime.now, editable=False)
-    
+
     def __unicode__(self):
         if self.pk is not None:
             return "{{ %d }}" % self.pk
@@ -187,7 +187,7 @@ class Image(models.Model):
             return "deleted image"
 
 class FeedHit(models.Model):
-    
+
     request_data = models.TextField()
     created = models.DateTimeField(default=datetime.now)
 
