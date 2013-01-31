@@ -96,7 +96,7 @@
 
 
         <script type="text/javascript" src="{% block jquery_src %}https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js{% endblock %}"></script>
-        <script src="{{ STATIC_URL }}js/jquery.equalheight.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}js/jquery.eqheight.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(function(){
                 function dynamic_banner(){
@@ -107,7 +107,7 @@
                 $(window).on("resize", dynamic_banner);
 
                 // equal height for posts on homepage
-                $(".row-fluid").equalHeight(".span6");
+                $(".row-fluid").eqHeight(".span6");
             })
         </script>
         <script src="{{ STATIC_URL }}js/base.js" type="text/javascript"></script>
