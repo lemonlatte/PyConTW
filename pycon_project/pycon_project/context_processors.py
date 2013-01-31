@@ -7,6 +7,7 @@ def language_path(request):
     paths = request.path.split('/')
     for code, name in LANGUAGES:
         codes.append(code)
+        codes.append(code.split("-")[0])
     try:
         if paths[1] in codes:
             del paths[1]

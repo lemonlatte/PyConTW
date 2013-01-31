@@ -49,7 +49,7 @@ TIME_ZONE = "Asia/Taipei"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "zh-TW"
+LANGUAGE_CODE = "zh"
 
 SITE_ID = 1
 
@@ -262,7 +262,7 @@ DEFAULT_FROM_EMAIL = "mailer@pycon.tw"
 
 LANGUAGES = (
     ('en', 'English'),
-    ('zh-tw', 'Traditional Chinese'),
+    ('zh', 'Traditional Chinese'),
 )
 
 LOCALE_PATHS = (
