@@ -6,7 +6,7 @@ body {
 
 .nowcfp {
     font-weight: bold;
-    color: #e2543c;
+    color: #e3543b;
 }
 
 p, .content li {
@@ -49,6 +49,9 @@ p, .content li {
 .sponsor-list img {
     width: 100%;
     max-width: 250px;
+}
+.sponsor-list h3 {
+  color: #e3543b;
 }
 
 .account-bar {
