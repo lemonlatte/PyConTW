@@ -1,7 +1,7 @@
 body {
     background: url(../img/bg-repeat.jpg);
-    font-family: "新細明體";
-    color: #878787;
+    font-family: '微軟正黑體',Arial,sans-serif;
+    color: #666;
 }
 
 p, .content li {
@@ -177,11 +177,6 @@ header {
     font-size: 2em;
     line-height: 1em;
     margin-left: 50px;
-}
-
-#pycon_intro {
-    font-size: 1.1em;
-    line-height: 1.5;
 }
 
 #sponsor_logos {
