@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-31 16:11+0800\n"
+"POT-Creation-Date: 2013-02-02 20:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -329,9 +329,9 @@ msgstr "首頁"
 msgid "About"
 msgstr "關於"
 
-#: templates/_nav.html:19 templates/pycon/program.html:78
-msgid "Program"
-msgstr "議程"
+#: templates/_nav.html:19
+msgid "Call for Proposals"
+msgstr "徵求講題"
 
 #: templates/_nav.html:22 templates/sponsors/base.html:4
 #: templates/sponsors/base.html.py:11 templates/sponsors/list.html:10
@@ -364,11 +364,11 @@ msgstr "中央研究院人文社會科學館 5月25-26日"
 msgid "Sponsors!"
 msgstr "熱情的贊助商"
 
-#: templates/homepage.html:50 templates/homepage.html.py:54
+#: templates/homepage.html:48 templates/homepage.html.py:52
 msgid "Sponsor PyConTW 2013!"
 msgstr "贊助 PyConTW 2013！"
 
-#: templates/homepage.html:50 templates/homepage.html.py:54
+#: templates/homepage.html:48 templates/homepage.html.py:52
 msgid "/2013/en/blog/2012/11/21/how-to-pycon-taiwan-en/"
 msgstr "/2013/zh-tw/blog/2012/11/21/how-to-pycon-taiwan-zh/"
 
@@ -828,6 +828,10 @@ msgstr "儲存"
 #: templates/proposals/proposal_submit.html:28
 msgid "Save and Add Additional Speakers"
 msgstr "儲存並新增其他講者"
+
+#: templates/pycon/program.html:78
+msgid "Program"
+msgstr "議程"
 
 #: templates/speakers/base.html:11
 msgid "Speaker <span>Information</span>"

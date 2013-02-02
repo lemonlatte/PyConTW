@@ -4,6 +4,11 @@ body {
     color: #666;
 }
 
+.nowcfp {
+    font-weight: bold;
+    color: #e2543c;
+}
+
 p, .content li {
     /* Bootstrap v2.0.1 Styles */
     margin: 0 0 9px;
