@@ -16,7 +16,7 @@
                     <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
                 </li>
                 <li class="{% active request "/2013/program/" %}">
-                <a href="/2013/zh/blog/2012/11/21/call-for-proposals-{{ request.LANGUAGE_CODE }}/" id="link-program"><span class="nowcfp">{% trans "Call for Proposals" %}</span></a>
+                    <a href="/2013/{{ request.LANGUAGE_CODE }}/blog/2012/11/21/call-for-proposals-{{ request.LANGUAGE_CODE }}/" id="link-program"><span class="nowcfp">{% trans "Call for Proposals" %}</span></a>
                 </li>
                 <li class="{% active request "/2013/sponsors/" %}">
                     <a href="{% url sponsor_list %}" id="link-sponsors">{% trans "Sponsors" %}</a>
