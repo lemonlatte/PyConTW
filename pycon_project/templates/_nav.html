@@ -15,6 +15,9 @@
                 <li class="{% active request "/2013/about/" %}">
                     <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
                 </li>
+                <li class="{% active request "/2013/tutorial/" %}">
+                    <a href="{% url tutorial %}" id="link-tutorial">{% trans "Tutorial" %}</a>
+                </li>
                 <li class="{% active request "/2013/program/" %}">
                     <a href="/2013/{{ request.LANGUAGE_CODE }}/blog/2012/11/21/call-for-proposals-{{ request.LANGUAGE_CODE }}/" id="link-program"><span class="nowcfp">{% trans "Call for Proposals" %}</span></a>
                 </li>

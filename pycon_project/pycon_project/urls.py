@@ -19,6 +19,7 @@ handler500 = "pinax.views.server_error"
 urlpatterns += i18n_patterns("",
         url(r"^$", direct_to_template, {"template": "homepage.html"}, name="home"),
         url(r"^program/$", direct_to_template, {"template": "pycon/program.html"}, name="program"),
+        url(r"^tutorial/$", direct_to_template, {"template": "pycon/tutorial.html"}, name="tutorial"),
         url(r"^account/signup/$", "pinax.apps.account.views.signup", name="acct_signup"),
         url(r"^account/", include("pinax.apps.account.urls")),
         # url(r"^openid/", include(PinaxConsumer().urls)),
