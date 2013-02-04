@@ -1,3 +1,10 @@
+@media (max-width: 767px) {
+  body header.header {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
+
 body {
     background: url(../img/bg-repeat.jpg);
     font-family: '微軟正黑體',Arial,sans-serif;
