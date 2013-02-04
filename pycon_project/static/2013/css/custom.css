@@ -1,8 +1,11 @@
 @media (max-width: 767px) {
-  body header.header {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
+    body header.header {
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .brick {
+        padding-bottom: 1px;
+    }
 }
 
 body {
