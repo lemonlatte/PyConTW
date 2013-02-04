@@ -444,10 +444,11 @@ msgstr "新增電子郵件"
 msgid "add"
 msgstr "新增"
 
+#: templates/_nav.html:52
 #: templates/account/language_change.html:6
 #: templates/account/language_change.html:9
 msgid "Language"
-msgstr "語言"
+msgstr "切換語言"
 
 #: templates/account/language_change.html:11
 msgid "This site can be used in your preferred language."

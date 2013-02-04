@@ -58,7 +58,15 @@ p, .content li {
 
 .account-bar {
     text-align: right;
-    margin: 10px 0px;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 1em;
+}
+
+.social-buttons {
+    margin: 7px auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .site-logo {
@@ -99,6 +107,10 @@ header {
 
 .navbar .nav > li > a:hover {
     color: inherit;
+}
+
+.navbar-form {
+    margin-left: 1em;
 }
 
 .banner {

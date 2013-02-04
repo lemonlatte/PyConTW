@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Cache-Control" CONTENT="private, no-cache, no-store">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome-ie7.min.css">
+        <![endif]-->
+
         <link href="{{ STATIC_URL }}img/favicon.ico" rel="shortcut icon" />
         <title>{% block head_title_base %}{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}{% endblock %}</title>
         <!--  hack to make IE able to apply CSS to elements that it doesn't usually know about. See http://code.google.com/p/html5shim/ -->
@@ -30,7 +37,24 @@
 
             <header class="header">
                 <div class="container">
-                    <div>
+                    <div class="clearfix">
+                        <div class="pull-right social-buttons">
+                            <div class="btn-group">
+                                <a class="btn btn-small btn-primary" href="http://www.facebook.com/pycontw" target="_blank">
+                                    <i class="icon-facebook"></i>
+                                    Facebook
+                                </a>
+                                <a class="btn btn-small btn-info" href="http://twitter.com/pycontw" target="_blank">
+                                    <i class="icon-twitter"></i>
+                                    Twitter
+                                </a>
+                                <a class="btn btn-small btn-danger" href="https://plus.google.com/104477434698191189278" target="_blank">
+                                    <i class="icon-google-plus"></i>
+                                    Google Plus
+                                </a>
+                            </div>
+                        </div>
+
                         {% include "_account_bar.html" %}
                     </div>
 
