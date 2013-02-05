@@ -74,8 +74,9 @@ p, .content li {
     margin-left: 1em;
 }
 
-.account-bar li, p {
+.account-bar li, .account-bar p {
     font-size: 13px;
+    white-space: nowrap;
     margin-left: 0.5em;
     margin-bottom: 0;
 }
