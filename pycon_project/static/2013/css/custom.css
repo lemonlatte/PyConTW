@@ -70,16 +70,28 @@ p, .content li {
 }
 
 .account-bar {
-    text-align: right;
     float: right;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.account-bar li, p {
+    font-size: 13px;
+    white-space: nowrap;
+    margin-left: 0.5em;
+    margin-bottom: 0;
+}
+
+.account-bar .dropdown-menu > li > a {
+    font-size: 13px;
 }
 
 .social-buttons {
-    margin: 7px auto;
+    margin: 3px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.social-buttons .btn {
+    width: 1.5em;
 }
 
 .site-logo {
@@ -108,22 +120,42 @@ form ul li label input {
 header {
     background-color: white;
     font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 40px;
 }
 
 .nav {
     font-size: 18px;
 }
 
+.nav-en {
+    font-size: 16px;
+}
+
 .navbar .nav > li > a {
-    text-shadow: none;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+}
+
+.navbar .nav > li > a:hover
+{
+    color:#555555;
+    text-decoration:none;
+    background-color:#fff;
+    -webkit-box-shadow:inset 0 3px 8px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow:inset 0 3px 8px rgba(0, 0, 0, 0.125);
+    box-shadow:inset 0 3px 8px rgba(0, 0, 0, 0.125);
 }
 
 .navbar .nav > li > a:hover {
     color: inherit;
 }
 
-.navbar-form {
-    margin-left: 1em;
+#language-selector .navbar-text {
+    margin-right: 0.5em;
+}
+
+#language-selector select {
+    width: 7em;
 }
 
 .banner {

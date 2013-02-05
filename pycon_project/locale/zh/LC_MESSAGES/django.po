@@ -299,13 +299,13 @@ msgstr "檔案"
 #: templates/_account_bar.html:7 templates/account/base.html:15
 #: templates/account/email.html:6
 msgid "Account"
-msgstr "帳號"
+msgstr "我的帳號"
 
-#: templates/_account_bar.html:10
+#: templates/_account_bar.html:12
 msgid "Manage Sponsorship"
 msgstr "管理贊助"
 
-#: templates/_account_bar.html:14
+#: templates/_account_bar.html:16
 msgid "Proposal Review"
 msgstr "提案審核"
 
@@ -313,45 +313,49 @@ msgstr "提案審核"
 msgid "Edit Content"
 msgstr "編輯內容"
 
-#: templates/_account_bar.html:23
+#: templates/_account_bar.html:26
 msgid "Log in"
 msgstr "登入"
 
-#: templates/_account_bar.html:23 templates/account/signup.html:12
+#: templates/_account_bar.html:26 templates/account/signup.html:12
 msgid "Sign Up"
 msgstr "註冊"
 
-#: templates/_nav.html:13 templates/homepage.html:4
+#: templates/_nav.html:16 templates/homepage.html:4
+msgid "nav-en"
+msgstr "nav-zh"
+
+#: templates/homepage.html:4
 msgid "Home"
 msgstr "首頁"
 
-#: templates/_nav.html:16 templates/pycon/about.html:4
+#: templates/_nav.html:21 templates/pycon/about.html:4
 msgid "About"
 msgstr "關於"
 
-#: templates/_nav.html:19
+#: templates/_nav.html:24
 msgid "Call for Proposals"
 msgstr "徵求講題"
 
-#: templates/_nav.html:22 templates/sponsors/base.html:4
+#: templates/_nav.html:27 templates/sponsors/base.html:4
 #: templates/sponsors/base.html.py:11 templates/sponsors/list.html:10
 msgid "Sponsors"
 msgstr "贊助商"
 
-#: templates/_nav.html:25 templates/speakers/base.html:6
+#: templates/_nav.html:30 templates/speakers/base.html:6
 msgid "Speakers"
 msgstr "講者"
 
-#: templates/_nav.html:28 templates/pycon/registration.html:4
+#: templates/_nav.html:33 templates/pycon/registration.html:4
 msgid "Registration"
 msgstr "註冊"
 
-#: templates/_nav.html:31 templates/venue/base.html:7
+#: templates/_nav.html:36 templates/venue/base.html:7
 #: templates/venue/base.html.py:16
 msgid "Venue"
 msgstr "地點"
 
-#: templates/_nav.html:34 templates/biblion/blog_base.html:11
+#: templates/_nav.html:39 templates/biblion/blog_base.html:11
 #: templates/biblion/blog_list.html:4
 msgid "Blog"
 msgstr "部落格"
@@ -495,7 +499,7 @@ msgstr ""
 "如果你在登入碰到任何問題, 請透過 <a href=\"mailto:%(CONTACT_EMAIL)s\">"
 "%(CONTACT_EMAIL)s</a> 聯絡我們"
 
-#: templates/account/logout.html:5
+#: templates/_account_bar.html:21 templates/account/logout.html:5
 msgid "Logout"
 msgstr "登出"
 

@@ -1,60 +1,83 @@
 {% load i18n common %}
-<div class="navbar">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
     <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </a>
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-        <div class="nav-collapse">
-            <ul class="nav">
-                <li class="{% re_active request "^/2013/$" %}">
-                    <a href="{% url home %}" id="link-about">{% trans "Home" %}</a>
+        <!-- Everything you want hidden at 940px or less, place within here -->
+        <div class="nav-collapse collapse">
+            <!-- .nav, .navbar-search, .navbar-form, etc -->
+            <ul class="nav {% trans "nav-en" %}">
+                <li class="{% active request "/zh/$" %}">
+                    <a href="{% url home %}" class="brand" id="link-home">PyConTW</a>
                 </li>
-                <li class="{% active request "/2013/about/" %}">
+                <li class="{% active request "/zh/about/" %}{% active request "/en/about/" %}">
                     <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
                 </li>
-                <li class="{% active request "/2013/program/" %}">
+                <li class="{% active request "/zh/program/" %}{% active request "/en/program/" %}">
                     <a href="/2013/{{ request.LANGUAGE_CODE }}/blog/2012/11/21/call-for-proposals-{{ request.LANGUAGE_CODE }}/" id="link-program"><span class="nowcfp">{% trans "Call for Proposals" %}</span></a>
                 </li>
-                <li class="{% active request "/2013/sponsors/" %}">
+                <li class="{% active request "/zh/sponsors/" %}{% active request "/en/sponsors/" %}">
                     <a href="{% url sponsor_list %}" id="link-sponsors">{% trans "Sponsors" %}</a>
                 </li>
-                <li class="{% active request "/2013/speaker/" %}">
+                <li class="{% active request "/zh/speaker/" %}{% active request "/en/speaker/" %}">
                     <a href="{% url speaker_dashboard %}" id="link-speakers">{% trans "Speakers" %}</a>
                 </li>
-                <li class="{% active request "/2013/registration/" %}">
+                <li class="{% active request "/zh/registration/" %}{% active request "/en/registration/" %}">
                     <a href="{% url registration %}" id="link-registration">{% trans "Registration" %}</a>
                 </li>
-                <li class="{% active request "/2013/venue/" %}">
+                <li class="{% active request "/zh/venue/" %}{% active request "/en/venue/" %}">
                     <a href="{% url venue_detail %}" id="link-venue">{% trans "Venue" %}</a>
                 </li>
-                <li class="{% active request "/2013/blog/" %}">
+                <li class="{% active request "/zh/blog/" %}{% active request "/en/blog/" %}">
                     <a href="{% url blog %}" id="link-blog">{% trans "Blog" %}</a>
                 </li>
             </ul>
 
-            <form action="{% if not debug %}/2013{% endif %}/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
+            {% include "_account_bar.html" %}
+
+            <div class="pull-right social-buttons">
+                <div class="btn-group">
+                    <a class="btn btn-small btn-primary" href="http://www.facebook.com/pycontw" target="_blank">
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a class="btn btn-small btn-info" href="http://twitter.com/pycontw" target="_blank">
+                        <i class="icon-twitter"></i>
+                    </a>
+                    <a class="btn btn-small btn-danger" href="https://plus.google.com/104477434698191189278" target="_blank">
+                        <i class="icon-google-plus"></i>
+                    </a>
+                </div>
+            </div>
+
+            <form id="language-selector" action="{% if not debug %}/2013{% endif %}/i18n/setlang/" method="post" class="navbar-form pull-right language_form">{% csrf_token %}
                 <input name="next" type="hidden" value="{{ no_lang_path }}" />
-                <div class="control-group">
-                  <div class="controls">
-                    <div class="input-prepend input-append">
-                        {% if request.LANGUAGE_CODE == "zh" %}
-                            <span class="add-on">&nbsp;Language&nbsp;</span>
-                        {% else %}
-                            <span class="add-on">&nbsp;語言&nbsp;</span>
-                        {% endif %}
-                        <select class="span2" name="language" style="margin-top: 0;">
+                <ul class="nav">
+                    <li>
+                        <p class="navbar-text">
+                            {% if request.LANGUAGE_CODE == "zh" %}
+                                Language
+                            {% else %}
+                                語言
+                            {% endif %}
+                        </p>
+                    </li>
+                    <li>
+                        <select onchange="document.getElementById('language-selector').submit();" name="language">
                         {% for lang in LANGUAGES %}
                             <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
                         {% endfor %}
                         </select>
-                        <input class="btn" type="submit" value="Go" />
-                    </div>
-                  </div>
-                </div>
+                    </li>
+                </ul>
             </form>
         </div>
     </div>
+  </div>
 </div>
