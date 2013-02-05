@@ -40,7 +40,11 @@
                 <div class="control-group">
                   <div class="controls">
                     <div class="input-prepend input-append">
-                        <span class="add-on">&nbsp; {% trans "Language" %} &nbsp;</span>
+                        {% if request.LANGUAGE_CODE == "zh" %}
+                            <span class="add-on">&nbsp;Language&nbsp;</span>
+                        {% else %}
+                            <span class="add-on">&nbsp;語言&nbsp;</span>
+                        {% endif %}
                         <select class="span2" name="language" style="margin-top: 0;">
                         {% for lang in LANGUAGES %}
                             <option value="{{ lang.0 }}"{% ifequal request.LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>{{ lang.1 }}</option>
