@@ -14,28 +14,28 @@
         <div class="nav-collapse collapse">
             <!-- .nav, .navbar-search, .navbar-form, etc -->
             <ul class="nav {% trans "nav-en" %}">
-                <li class="{% active request "/zh/$" %}">
+                <li class="{% active request "/2013/zh/$" %}{% active request "/2013/en/$" %}">
                     <a href="{% url home %}" class="brand" id="link-home">PyConTW</a>
                 </li>
-                <li class="{% active request "/zh/about/" %}{% active request "/en/about/" %}">
+                <li class="{% active request "/2013/zh/about/" %}{% active request "/2013/en/about/" %}">
                     <a href="{% url about %}" id="link-about">{% trans "About" %}</a>
                 </li>
-                <li class="{% active request "/zh/program/" %}{% active request "/en/program/" %}">
+                <li class="{% active request "/2013/zh/program/" %}{% active request "/2013/en/program/" %}">
                     <a href="/2013/{{ request.LANGUAGE_CODE }}/blog/2012/11/21/call-for-proposals-{{ request.LANGUAGE_CODE }}/" id="link-program"><span class="nowcfp">{% trans "Call for Proposals" %}</span></a>
                 </li>
-                <li class="{% active request "/zh/sponsors/" %}{% active request "/en/sponsors/" %}">
+                <li class="{% active request "/2013/zh/sponsors/" %}{% active request "/2013/en/sponsors/" %}">
                     <a href="{% url sponsor_list %}" id="link-sponsors">{% trans "Sponsors" %}</a>
                 </li>
-                <li class="{% active request "/zh/speaker/" %}{% active request "/en/speaker/" %}">
+                <li class="{% active request "/2013/zh/speaker/" %}{% active request "/2013/en/speaker/" %}">
                     <a href="{% url speaker_dashboard %}" id="link-speakers">{% trans "Speakers" %}</a>
                 </li>
-                <li class="{% active request "/zh/registration/" %}{% active request "/en/registration/" %}">
+                <li class="{% active request "/2013/zh/registration/" %}{% active request "/2013/en/registration/" %}">
                     <a href="{% url registration %}" id="link-registration">{% trans "Registration" %}</a>
                 </li>
-                <li class="{% active request "/zh/venue/" %}{% active request "/en/venue/" %}">
+                <li class="{% active request "/2013/zh/venue/" %}{% active request "/2013/en/venue/" %}">
                     <a href="{% url venue_detail %}" id="link-venue">{% trans "Venue" %}</a>
                 </li>
-                <li class="{% active request "/zh/blog/" %}{% active request "/en/blog/" %}">
+                <li class="{% active request "/2013/zh/blog/" %}{% active request "/2013/en/blog/" %}">
                     <a href="{% url blog %}" id="link-blog">{% trans "Blog" %}</a>
                 </li>
             </ul>
