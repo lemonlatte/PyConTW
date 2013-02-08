@@ -258,6 +258,34 @@ header {
     margin: 5px;
 }
 
+.btn-plurk
+{
+    color:#ffffff;
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: rgb(241, 121, 41);
+    background-image:-moz-linear-gradient(top, rgb(241, 121, 41), rgb(213, 79, 4));
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, from(rgb(241, 121, 41)), to(rgb(213, 79, 4)));
+    background-image:-webkit-linear-gradient(top, rgb(241, 121, 41), rgb(213, 79, 4));
+    background-image:-o-linear-gradient(top, rgb(241, 121, 41), rgb(213, 79, 4));
+    background-image:linear-gradient(to bottom, rgb(241, 121, 41), rgb(213, 79, 4));
+    background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+    border-color:rgb(213, 79, 4) rgb(213, 79, 4) rgb(134, 32, 0);
+    border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    *background-color:rgb(213, 79, 4);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    font-weight: bold;
+}
+.btn-plurk:hover,.btn-plurk:active,.btn-plurk.active,.btn-plurk.disabled,.btn-plurk[disabled]
+{
+    color:#ffffff;
+    background-color:rgb(213, 79, 4);
+    *background-color:#a9302a;
+}
+.btn-plurk:active,.btn-plurk.active
+{
+    background-color:#942a25 \9;
+}
+
 footer {
     text-align: center;
     margin-top: 100px;
