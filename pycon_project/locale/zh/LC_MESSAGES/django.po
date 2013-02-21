@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 20:04+0800\n"
+"POT-Creation-Date: 2013-02-03 19:29+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -332,6 +332,10 @@ msgstr "首頁"
 #: templates/_nav.html:21 templates/pycon/about.html:4
 msgid "About"
 msgstr "關於"
+
+#: templates/_nav.html:19 templates/pycon/tutorial.html:78
+msgid "Tutorial"
+msgstr "先修"
 
 #: templates/_nav.html:24
 msgid "Call for Proposals"
