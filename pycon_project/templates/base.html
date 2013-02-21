@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Cache-Control" CONTENT="private, no-cache, no-store">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome.min.css">
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/font-awesome-ie7.min.css">
+        <![endif]-->
+
         <link href="{{ STATIC_URL }}img/favicon.ico" rel="shortcut icon" />
         <title>{% block head_title_base %}{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}{% endblock %}</title>
         <!--  hack to make IE able to apply CSS to elements that it doesn't usually know about. See http://code.google.com/p/html5shim/ -->
@@ -30,10 +37,6 @@
 
             <header class="header">
                 <div class="container">
-                    <div>
-                        {% include "_account_bar.html" %}
-                    </div>
-
                     {% include "_nav.html" %}
                     {% if messages %}
                         {% for message in messages %}
@@ -64,7 +67,7 @@
                 </div>
             </div>
             <div class="visible-phone">
-                <img class="site-logo" src="{{ STATIC_URL }}img/pycontw2013-site-logo.png"/>
+                <img class="site-logo" src="{{ STATIC_URL }}img/pycontw2013-site-logo-m.png"/>
             </div>
             <section id="subnav">
                 <div class="container">

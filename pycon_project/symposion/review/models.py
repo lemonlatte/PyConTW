@@ -312,4 +312,4 @@ def accepted_proposal(sender, instance=None, **kwargs):
         return
     if instance.accepted == True:
         promote_proposal(instance.proposal)
-post_save.connect(accepted_proposal, sender=ProposalResult)
+# post_save.connect(accepted_proposal, sender=ProposalResult)

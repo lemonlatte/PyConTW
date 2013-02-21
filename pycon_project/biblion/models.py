@@ -31,7 +31,7 @@ def ig(L, i):
 class Post(models.Model):
 
     SECTION_CHOICES = [(1, ALL_SECTION_NAME)] + zip(range(2, 2 + len(SECTIONS)), ig(SECTIONS, 1))
-    LANGUAGE_CHOICES = [('zh', 'Traditional Chinese'), ('en', 'English')]
+    LANGUAGE_CHOICES = [('zh', '中文'), ('en', 'English')]
 
     section = models.IntegerField(choices=SECTION_CHOICES)
 

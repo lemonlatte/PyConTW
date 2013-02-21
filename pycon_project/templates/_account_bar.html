@@ -1,26 +1,31 @@
 {% load openid_tags i18n %}
 
-<div class="account-bar">
 {% if user.is_authenticated %}
-    {% ifopenid %}<img src="{{ STATIC_URL }}images/openid-icon.png" alt="Logged in with OpenID" />{% endifopenid %}<b>{{ user }}</b>
-    |
-    <a href="{% url acct_email %}">{% trans "Account" %}</a>
-    |
-    {% if user.sponsorship and user.sponsorship.active %}
-    <a href="{% url sponsor_detail user.sponsorship.pk %}">{% trans "Manage Sponsorship" %}</a>
-    |
-    {% endif %}
-    {% if user.is_staff %}
-        <a href="{% url review_list %}">{% trans "Proposal Review" %}</a> 
-        |
-        <a href="{% url admin:index %}">Admin</a>
-        |
-        <a href="#" onclick="$('a.boxes-edit-link').toggle();return false;">{% trans "Edit Content" %}</a>
-        |
-    {% endif %}
-    <a href="{% if request.openid %}{% url openid-logout %}?next={% url acct_logout %}{% else %}{% url acct_logout %}{% endif %}">Logout</a>
+    {% ifopenid %}<img src="{{ STATIC_URL }}images/openid-icon.png" alt="Logged in with OpenID" />{% endifopenid %}
+<ul class="nav account-bar pull-right">
+    <li class="dropdown">
+        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><b>{{ user }}</b> <b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+            <li><a href="{% url acct_email %}">{% trans "Account" %}</a></li>
+
+            {% if user.sponsorship and user.sponsorship.active %}
+            <li><a href="{% url sponsor_detail user.sponsorship.pk %}">{% trans "Manage Sponsorship" %}</a></li>
+            {% endif %}
+
+            {% if user.is_staff %}
+            <li><a href="{% url review_list %}">{% trans "Proposal Review" %}</a></li>
+            <li><a href="{% url admin:index %}">Admin</a></li>
+            <li><a href="#" onclick="$('a.boxes-edit-link').toggle();return false;">{% trans "Edit Content" %}</a></li>
+            {% endif %}
+
+            <li class="divider"></li>
+            <li><a href="{% if request.openid %}{% url openid-logout %}?next={% url acct_logout %}{% else %}{% url acct_logout %}{% endif %}">{% trans "Logout" %}</a></li>
+        </ul>
+    </li>
+</ul>
 {% else %}
-    <a href="{% url acct_login %}">{% trans "Log in" %}</a> or <a href="{% url acct_signup %}">{% trans "Sign Up" %}</a>
-{% endif %}
+<div class="nav account-bar pull-right">
+    <p><a class="navbar-text" href="{% url acct_login %}">{% trans "Log in" %}</a> or <a href="{% url acct_signup %}">{% trans "Sign Up" %}</a></p>
 </div>
-<div class="clear"></div>
+{% endif %}
+
