@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+
 @media (max-width: 767px) {
     body header.header {
         border-bottom-right-radius: 5px;
@@ -128,7 +130,8 @@ header {
 }
 
 .nav-en {
-    font-size: 16px;
+    font-size: 17px;
+    font-family: 'Roboto Condensed';
 }
 
 .navbar .nav > li > a {
