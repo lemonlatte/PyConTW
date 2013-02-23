@@ -126,6 +126,11 @@ header {
     margin-bottom: 40px;
 }
 
+#pycon_intro > .intro-zh > p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
 .nav {
     font-size: 18px;
 }
