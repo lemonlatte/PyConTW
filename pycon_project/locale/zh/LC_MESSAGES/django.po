@@ -34,7 +34,6 @@ msgid "Edit"
 msgstr "編輯"
 
 #: symposion/proposals/forms.py:14
-#, fuzzy
 msgid "Types"
 msgstr "類型"
 
@@ -81,7 +80,6 @@ msgid "Regular Talk (30 minutes)"
 msgstr "一般演講 (30分鐘)"
 
 #: symposion/proposals/models.py:37
-#, fuzzy
 msgid "Lightening Talk (5 minutes)"
 msgstr "閃電秀 (5分鐘)"
 
