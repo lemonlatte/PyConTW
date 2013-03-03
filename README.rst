@@ -49,4 +49,5 @@ Running a web server
 
 In development you should run::
 
+    (pycon)$ python pycon_project/manage.py compilemessages
     (pycon)$ python pycon_project/manage.py runserver
