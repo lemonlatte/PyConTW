@@ -382,6 +382,30 @@ msgstr "贊助 PyConTW 2013！"
 msgid "/2013/en/blog/2012/11/21/how-to-pycon-taiwan-en/"
 msgstr "/2013/zh-tw/blog/2012/11/21/how-to-pycon-taiwan-zh/"
 
+#: Override pinax po file
+msgid "Username"
+msgstr "帳號"
+
+#: Override pinax po file
+msgid "Password"
+msgstr "密碼"
+
+#: Override pinax po file
+msgid "Remember Me"
+msgstr "記住我"
+
+#: Override pinax po file
+msgid "If checked you will stay logged in for 3 weeks"
+msgstr "勾選後，登入資訊將記憶三星期"
+
+#: Override pinax po file
+msgid "The username and/or password you specified are not correct."
+msgstr "使用者帳號或密碼不正確"
+
+#: Override django po file
+msgid "This field is required."
+msgstr "這個欄位是必需的"
+
 #: templates/account/_openid_login.html:23 templates/account/login.html:42
 msgid "Log in &raquo;"
 msgstr "登入 &raquo;"
