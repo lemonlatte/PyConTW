@@ -1,5 +1,5 @@
 {% extends "site_base.html" %}
-
+{% load i18n %}
 {% load uni_form_tags %}
 
 {% block body_class %}review{% endblock %}
@@ -20,19 +20,20 @@
             {{ proposal.description }}
         </div>
 
-        <p><b>Type</b>: {{ proposal.get_kind_display }}</p>
+        <p><b>{% trans "Type" %}</b>: {{ proposal.get_kind_display }}</p>
+        <p><b>{% trans "Category" %}</b>: {{ proposal.category.name }}</p>
 
-        <h3>Abstract</h3>
+        <h3>{% trans "Abstract" %}</h3>
         <div class="abstract">
             {{ proposal.abstract_html|safe }}
         </div>
 
-        <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
+        <p><b>{% trans "Audience level" %}</b>: {{ proposal.get_audience_level_display }}</p>
 
-        <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p> {# @@@ bio? #}
+        <p><b>{% trans "Submitting speaker" %}</b>: {{ proposal.speaker }}</p> {# @@@ bio? #}
 
         {% if proposal.additional_speakers.all %}
-            <p><b>Additional speakers</b>:</p>
+            <p><b>{% trans "Additional speakers" %}</b>:</p>
             <ul>
             {% for speaker in proposal.additional_speakers.all %}
                 {% if speaker.user %}
@@ -44,7 +45,7 @@
             </ul>
         {% endif %}
 
-        <h3>Additional Notes (private from submitter)</h3>
+        <h3>{% trans "Additional notes" %} ({% trans "private from submitter" %})</h3>
         <div class="additional_notes">
             {{ proposal.additional_notes }}
         </div>

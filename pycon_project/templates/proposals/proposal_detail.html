@@ -1,5 +1,5 @@
 {% extends "proposals/base.html" %}
-
+{% load i18n %}
 {% load uni_form_tags %}
 
 {% block content %}
@@ -8,10 +8,10 @@
     <p>
         {% if not proposal.cancelled %}
             {% if request.user == proposal.speaker.user %}
-                <a href="{% url proposal_edit proposal.pk %}">Edit</a>
-                | <a href="{% url proposal_cancel proposal.pk %}">Cancel</a>
+                <a href="{% url proposal_edit proposal.pk %}">{% trans "Edit" %}</a>
+                | <a href="{% url proposal_cancel proposal.pk %}">{% trans "Cancel" %}</a>
             {% else %}
-                <a href="{% url proposal_leave proposal.pk %}">Leave</a>
+                <a href="{% url proposal_leave proposal.pk %}">{% trans "Leave" %}</a>
             {% endif %}
         {% else %}
             Cancelled
@@ -22,18 +22,19 @@
         {{ proposal.description }}
     </div>
 
-    <p><b>Type</b>: {{ proposal.get_kind_display }}</p>
+    <p><b>{% trans "Type" %}</b>: {{ proposal.get_kind_display }}</p>
+    <p><b>{% trans "Category" %}</b>: {{ proposal.category.name }}</p>
 
     <div>
         {{ proposal.abstract|safe }}
     </div>
 
-    <p><b>Audience level</b>: {{ proposal.get_audience_level_display }}</p>
+    <p><b>{% trans "Audience level" %}</b>: {{ proposal.get_audience_level_display }}</p>
 
-    <p><b>Submitting speaker</b>: {{ proposal.speaker }}</p>
+    <p><b>{% trans "Submitting speaker" %}</b>: {{ proposal.speaker }}</p>
 
     {% if proposal.additional_speakers.all %}
-        <p><b>Additional speakers</b>:</p>
+        <p><b>{% trans "Additional speakers" %}</b>:</p>
         <ul>
         {% for speaker in proposal.additional_speakers.all %}
             {% if speaker.user %}
@@ -46,7 +47,7 @@
     {% endif %}
 
     {% if request.user == proposal.speaker.user %}
-        <p><b>Additional Notes:</b></p>
+        <p><b>{% trans "Additional notes" %}:</b></p>
 
         <p>{{ proposal.additional_notes }}</p>
     {% endif %}
