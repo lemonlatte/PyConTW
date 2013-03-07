@@ -13,7 +13,7 @@
 
 body {
     background: url(../img/bg-repeat.jpg);
-    font-family: '微軟正黑體',Arial,sans-serif;
+    font-family: 'Microsoft JhengHei',Arial,sans-serif;
     color: #666;
 }
 
@@ -33,6 +33,11 @@ p, .content li {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
     line-height: 2;
+}
+
+.content strong {
+    color: #555;
+    font-weight: bold;
 }
 
 #body {
@@ -108,8 +113,8 @@ a.boxes-edit-link {
 h1, h2, h3, h4, h5 {
     margin: 20px 0px 5px 0px;
     padding-bottom: 10px;
-    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    line-height: 3;
+    font-family: 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 2;
 }
 
 h3 {
@@ -135,7 +140,7 @@ form ul li label input {
 
 header {
     background-color: white;
-    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-bottom: 40px;
 }
 
@@ -201,7 +206,7 @@ header {
 .banner_caption p {
     font-size: 1.5em;
     line-height: 1.25em;
-    font-family: '微軟正黑體', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Microsoft JhengHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .brick {
