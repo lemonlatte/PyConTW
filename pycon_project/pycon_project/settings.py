@@ -263,6 +263,7 @@ DEFAULT_FROM_EMAIL = "mailer@pycon.tw"
 LANGUAGES = (
     ('en', 'English'),
     ('zh', '中文'),
+    ('ja', '日本語'),
 )
 
 LOCALE_PATHS = (
