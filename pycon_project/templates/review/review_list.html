@@ -2,6 +2,9 @@
 
 {% block body %}
     <h1>Proposals</h1>
-    
+
     {% include "review/_review_table.html" %}
+    {% block extra_js %}
+    <script src="{{ STATIC_URL }}js/reviewer.js" type="text/javascript"></script>
+    {% endblock %}
 {% endblock %}
